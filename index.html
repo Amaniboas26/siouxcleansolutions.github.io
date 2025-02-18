@@ -18,16 +18,206 @@
     </script>
 
     <style>
+        /* Your existing styles here */
+
+        /* Mobile Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                padding: 1rem;
+                position: relative;
+            }
+
+            .brand {
+                margin-bottom: 1rem;
+                justify-content: center;
+            }
+
+            .brand-name {
+                font-size: 1.2rem;
+            }
+
+            .logo {
+                width: 40px;
+                height: 40px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            nav a {
+                display: block;
+                padding: 0.5rem;
+            }
+
+            .hero {
+                padding: 1rem;
+                min-height: 100vh;
+                height: auto;
+            }
+
+            .hero-content {
+                padding: 2rem 1rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+                margin-bottom: 1rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .hero-logo {
+                width: 80px;
+                height: 80px;
+            }
+
+            .services {
+                padding: 2rem 1rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+                margin-bottom: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .service-card {
+                padding: 1.5rem;
+            }
+
+            .testimonials {
+                padding: 2rem 1rem;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .testimonial-card {
+                padding: 1.5rem;
+            }
+
+            .testimonial-text {
+                font-size: 1rem;
+            }
+
+            .contact {
+                padding: 2rem 1rem;
+            }
+
+            .contact-form {
+                padding: 0 1rem;
+            }
+
+            .form-group {
+                margin-bottom: 1.5rem;
+            }
+
+            input, textarea {
+                padding: 0.8rem;
+                font-size: 16px;
+            }
+
+            .cta-button {
+                width: 100%;
+                padding: 1rem;
+                font-size: 1rem;
+                margin-top: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .service-card h3 {
+                font-size: 1.2rem;
+            }
+
+            .testimonial-card {
+                padding: 1.2rem;
+            }
+        }
+
+        @media (max-height: 500px) and (orientation: landscape) {
+            .hero {
+                height: auto;
+                min-height: 100vh;
+            }
+
+            .hero-content {
+                padding: 4rem 1rem;
+            }
+
+            .hero-logo {
+                width: 60px;
+                height: 60px;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .services-grid,
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<!-- Rest of your HTML code -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Sioux Clean Solutions</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- ModernMaid Scripts -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://modernmaid.io/iframe-sdk/modernmaid-iframe-sdk.js?version=0.1"></script>
+    <script>
+        window.ModernmaidIframeSdk.setup("5b828705ee8b438220ecd3adae7b5151");
+    </script>
+
+    <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
             font-family: 'Open Sans', sans-serif;
             line-height: 1.6;
             color: #333;
+            overflow-x: hidden;
+            width: 100%;
         }
 
         h1, h2, h3, .brand-name {
@@ -40,6 +230,7 @@
             width: 60px;
             height: 60px;
             margin-right: 1rem;
+            object-fit: contain;
         }
 
         .brand {
@@ -67,6 +258,7 @@
             align-items: center;
             font-family: 'Poppins', sans-serif;
             font-weight: 500;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         nav ul {
@@ -79,12 +271,18 @@
             color: white;
             text-decoration: none;
             font-weight: bold;
+            padding: 0.5rem;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
         }
 
         /* Hero Section */
         .hero {
             background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1581578731548-c64695cc6952');
-            height: 100vh;
+            min-height: 100vh;
             background-size: cover;
             background-position: center;
             display: flex;
@@ -92,11 +290,17 @@
             justify-content: center;
             text-align: center;
             color: white;
-            padding-top: 60px;
+            padding: 60px 20px 20px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
         }
 
         .hero-content h1 {
-            font-size: 3.5rem;
+            font-size: clamp(2rem, 5vw, 3.5rem);
             font-weight: 700;
             letter-spacing: -0.5px;
             line-height: 1.2;
@@ -105,31 +309,35 @@
 
         .hero-content p {
             font-family: 'Poppins', sans-serif;
-            font-size: 1.25rem;
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
             font-weight: 300;
             letter-spacing: 0.5px;
             margin-bottom: 2rem;
         }
 
         .hero-logo {
-            width: 120px;
-            height: 120px;
+            width: clamp(80px, 15vw, 120px);
+            height: clamp(80px, 15vw, 120px);
             margin-bottom: 1rem;
+            object-fit: contain;
         }
 
         .cta-button {
             background-color: #FFA500;
             color: white;
-            padding: 1rem 2rem;
+            padding: clamp(0.8rem, 2vw, 1rem) clamp(1.5rem, 3vw, 2rem);
             border: none;
             border-radius: 5px;
-            font-size: 1rem;
+            font-size: clamp(0.9rem, 2vw, 1rem);
             cursor: pointer;
             transition: background-color 0.3s;
             font-family: 'Poppins', sans-serif;
             font-weight: 500;
             letter-spacing: 0.5px;
             text-transform: uppercase;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
         }
 
         .cta-button:hover {
@@ -138,30 +346,31 @@
 
         /* Services Section */
         .services {
-            padding: 4rem 2rem;
+            padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem);
             background-color: #f9f9f9;
         }
 
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
             font-weight: 600;
-            margin-bottom: 3rem;
+            margin-bottom: clamp(2rem, 5vw, 3rem);
             color: #0078D4;
             letter-spacing: -0.5px;
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+            gap: clamp(1.5rem, 3vw, 2rem);
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 1rem;
         }
 
         .service-card {
             background-color: white;
-            padding: 2rem;
+            padding: clamp(1.5rem, 3vw, 2rem);
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             text-align: center;
@@ -169,21 +378,22 @@
 
         /* Testimonials Section */
         .testimonials {
-            padding: 4rem 2rem;
+            padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem);
             background-color: #f0f8ff;
         }
 
         .testimonials-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+            gap: clamp(1.5rem, 3vw, 2rem);
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 1rem;
         }
 
         .testimonial-card {
             background: white;
-            padding: 2.5rem;
+            padding: clamp(1.5rem, 3vw, 2.5rem);
             border-radius: 15px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -195,8 +405,7 @@
         }
 
         .testimonial-text {
-            font-family: 'Open Sans', sans-serif;
-            font-size: 1.1rem;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
             font-style: italic;
             line-height: 1.8;
             color: #444;
@@ -204,16 +413,14 @@
         }
 
         .testimonial-author {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            font-size: 1.1rem;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
             color: #0078D4;
             text-align: right;
         }
 
         /* Contact Section */
         .contact {
-            padding: 4rem 2rem;
+            padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem);
             background-color: #0078D4;
             color: white;
         }
@@ -221,26 +428,29 @@
         .contact-form {
             max-width: 600px;
             margin: 0 auto;
+            padding: 0 1rem;
         }
 
         .form-group {
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         .contact-form label {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 500;
-            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
         }
 
         input, textarea {
             width: 100%;
-            padding: 0.5rem;
-            margin-top: 0.5rem;
+            padding: 0.8rem;
             border: none;
             border-radius: 5px;
-            font-family: 'Open Sans', sans-serif;
-            font-size: 1rem;
+            font-size: 16px;
+            font-family: inherit;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
         }
 
         /* Footer */
@@ -248,12 +458,11 @@
             background-color: #005AA3;
             color: white;
             text-align: center;
-            padding: 1rem;
-            font-family: 'Open Sans', sans-serif;
-            font-size: 0.9rem;
+            padding: clamp(0.8rem, 2vw, 1rem);
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
         }
 
-        /* Responsive Design */
+        /* Mobile Responsive Design */
         @media (max-width: 768px) {
             nav {
                 flex-direction: column;
@@ -266,15 +475,49 @@
 
             nav ul {
                 flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+            }
+
+            nav li {
+                width: 100%;
+            }
+
+            nav a {
+                display: block;
+                padding: 0.5rem;
                 text-align: center;
             }
 
-            .hero-content h1 {
-                font-size: 2.5rem;
+            .hero-content {
+                padding: 1rem;
             }
 
-            .section-title {
-                font-size: 2rem;
+            .service-card, 
+            .testimonial-card {
+                margin: 0 auto;
+                max-width: 400px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .brand-name {
+                font-size: 1.2rem;
+            }
+
+            .logo {
+                width: 40px;
+                height: 40px;
+            }
+
+            .hero-logo {
+                width: 80px;
+                height: 80px;
+            }
+
+            .cta-button {
+                width: 100%;
+                max-width: 300px;
             }
         }
     </style>
@@ -282,7 +525,7 @@
 <body>
     <nav>
         <a href="#home" class="brand">
-            <img src="C:\Users\Amani\Documents\GitHub\siouxcleansolutions.github.io\Blue And White Cleaning Services Logo.png" alt="Sioux Clean Solutions Logo" class="logo">
+            <img src="Blue And White Cleaning Services Logo.png" alt="Sioux Clean Solutions Logo" class="logo">
             <span class="brand-name">Sioux Clean Solutions</span>
         </a>
         <ul>
@@ -295,7 +538,7 @@
 
     <section id="home" class="hero">
         <div class="hero-content">
-            <img src="C:\Users\Amani\Documents\GitHub\siouxcleansolutions.github.io\Blue And White Cleaning Services Logo.png" alt="Sioux Clean Solutions Logo" class="hero-logo">
+            <img src="Blue And White Cleaning Services Logo.png" alt="Sioux Clean Solutions Logo" class="hero-logo">
             <h1>Welcome to Sioux Clean Solutions</h1>
             <p>Professional Cleaning Services That Exceed Expectations</p>
             <button class="cta-button" onclick="window.open('https://modernmaid.io/iframes/bookings/5b828705ee8b438220ecd3adae7b5151', '_blank')">Book Now</button>

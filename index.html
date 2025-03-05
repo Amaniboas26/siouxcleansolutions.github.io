@@ -397,23 +397,25 @@
             </div>
         </div>
         
-  <section id="contact" class="contact">
-    <h2 class="section-title">Contact Us</h2>
+  <section id="contact" class="contact" style="padding: 20px;">
+    <h2 class="section-title" style="margin-bottom: 20px;">Contact Us</h2>
     <!-- Form -->
-    <form class="contact-form" action="https://formspree.io/f/xyzkrrnr" method="POST" id="contact-form">
-        <div class="form-group">
-            <input type="text" name="name" placeholder="Your Name" required>
+    <form class="contact-form" action="https://formspree.io/f/xyzkrrnr" method="POST" id="contact-form" style="max-width: 600px; margin: 0 auto;">
+        <div class="form-group" style="margin-bottom: 15px;">
+            <input type="text" name="name" placeholder="Your Name" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
         </div>
-        <div class="form-group">
-            <input type="email" name="email" placeholder="Your Email" required>
+        <div class="form-group" style="margin-bottom: 15px;">
+            <input type="email" name="email" placeholder="Your Email" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
         </div>
-        <div class="form-group">
-            <input type="tel" name="phone" placeholder="Your Phone" required>
+        <div class="form-group" style="margin-bottom: 15px;">
+            <input type="tel" name="phone" placeholder="Your Phone" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
         </div>
-        <div class="form-group">
-            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <div class="form-group" style="margin-bottom: 15px;">
+            <textarea name="message" rows="5" placeholder="Your Message" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;"></textarea>
         </div>
-        <button type="submit" class="cta-button">Send Message</button>
+        <button type="submit" class="cta-button" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
+            Send Message
+        </button>
     </form>
 
     <!-- Success Message Modal (Initially Hidden) -->
@@ -451,8 +453,6 @@
     });
   });
 </script>
-
-
 
     <footer>
         <p>&copy; 2024 Sioux Clean Solutions. All rights reserved.</p>

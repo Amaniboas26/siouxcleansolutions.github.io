@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Commercial Cleaning Services - Sioux Clean Solutions</title>
     
-    <!-- Same Google Fonts and Font Awesome links as main page -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
@@ -22,6 +21,122 @@
             color: #333;
         }
 
+        /* Navigation Styles */
+        nav {
+            background-color: #0078D4;
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+            gap: 1rem;
+        }
+
+        .brand-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .phone-number {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Dropdown Styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #0078D4;
+            min-width: 250px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            border-radius: 0 0 4px 4px;
+            z-index: 1001;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu li {
+            display: block;
+            margin: 0;
+            width: 100%;
+        }
+
+        .dropdown-menu a {
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s;
+            white-space: nowrap;
+            text-align: left;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #005aa3;
+        }
+
         .hero-commercial {
             background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
                 url('https://images.unsplash.com/photo-1613963931023-5dc59437c8a6?auto=format&fit=crop&w=1200');
@@ -30,6 +145,7 @@
             padding: 150px 20px;
             color: white;
             text-align: center;
+            margin-top: 80px;
         }
 
         .container {
@@ -84,6 +200,17 @@
             padding: 15px;
             background: #f8f9fa;
             border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .facility-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .facility-item i {
+            color: #0078D4;
+            font-size: 1.5rem;
         }
 
         .cta-button {
@@ -102,7 +229,52 @@
             background-color: #ff9100;
         }
 
+        footer {
+            background-color: #005AA3;
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Mobile Responsive */
         @media (max-width: 768px) {
+            .menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                width: 100%;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background-color: #0078D4;
+                padding: 1rem;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .dropdown-menu {
+                position: static;
+                width: 100%;
+                box-shadow: none;
+            }
+
             .section-title {
                 font-size: 2rem;
             }
@@ -110,14 +282,51 @@
             .services-grid {
                 grid-template-columns: 1fr;
             }
+
+            .hero-commercial {
+                padding: 100px 20px;
+            }
         }
     </style>
 </head>
 <body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="brand">
+                <img src="Secondary.png" alt="New Logo" class="logo" width="200" height="200">
+                <span class="brand-name">Sioux Clean Solutions</span>
+            </a>
+            <button class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links">
+                <a href="tel:6054128105" class="phone-number">
+                    <i class="fas fa-phone"></i>
+                    (605) 412-8105
+                </a>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#services">Services <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="residential-cleaning.html">Residential Cleaning</a></li>
+                            <li><a href="commercial-cleaning.html">Commercial Cleaning</a></li>
+                            <li><a href="#deep">Deep Cleaning</a></li>
+                            <li><a href="#move-in-out">Move-in/Move-out Cleaning</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="index.html#process">Process</a></li>
+                    <li><a href="index.html#testimonials">Testimonials</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
     <div class="hero-commercial">
         <h1>Professional Commercial Cleaning Services</h1>
         <p>Keep your business spotless and professional in Sioux Falls, SD</p>
-        <<a href="quote-form.html" class="cta-button">Get Your Free Estimate</a>
+        <a href="#contact" class="cta-button">Get Your Free Estimate</a>
     </div>
 
     <div class="container">
@@ -146,6 +355,7 @@
 
         <section>
             <h2 class="section-title">Facilities We Service</h2>
+            <p>Our experienced commercial cleaning team has expertise in maintaining various types of facilities:</p>
             <div class="facilities-list">
                 <div class="facility-item">
                     <i class="fas fa-landmark"></i>
@@ -210,5 +420,24 @@
             <a href="tel:6054128105" class="cta-button">Call Now</a>
         </section>
     </div>
+
+    <footer>
+        <p>&copy; 2024 Sioux Clean Solutions. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const menuBtn = document.querySelector('.menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>

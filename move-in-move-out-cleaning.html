@@ -21,7 +21,7 @@
             color: #333;
         }
 
-        /* Navigation Styles - Same as other pages */
+        /* Navigation Styles */
         nav {
             background-color: #0078D4;
             padding: 1rem;
@@ -40,7 +40,82 @@
             padding: 0 1rem;
         }
 
-        /* ... (Previous navigation styles) ... */
+        .nav-logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #FFA500;
+        }
+
+        .nav-link.dropdown {
+            position: relative;
+        }
+
+        .nav-link.dropdown::after {
+            content: '▼';
+            font-size: 0.6rem;
+            margin-left: 5px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            min-width: 150px;
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            padding: 10px 15px;
+            text-decoration: none;
+            display: block;
+            transition: background 0.3s ease;
+        }
+
+        .dropdown-content a:hover {
+            background: #f8f9fa;
+        }
+
+        .nav-link.dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #FFA500;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #ff9100;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 165, 0, 0.3);
+        }
 
         .hero-moving {
             background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
@@ -291,13 +366,38 @@
             .testimonial-cards {
                 grid-template-columns: 1fr;
             }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .cta-button {
+                padding: 8px 16px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation (Same as other pages) -->
+    <!-- Navigation Bar -->
     <nav>
-        <!-- ... Navigation content ... -->
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Sioux Clean Solutions</a>
+            <div class="nav-links">
+                <a href="tel:6054128105" class="cta-button">(605) 412-8105</a>
+                <a href="index.html" class="nav-link">Home</a>
+                <div class="nav-link dropdown">
+                    Services
+                    <div class="dropdown-content">
+                        <a href="#office-cleaning">Office Cleaning</a>
+                        <a href="#deep-cleaning">Deep Cleaning</a>
+                        <a href="#specialty-cleaning">Specialty Cleaning</a>
+                    </div>
+                </div>
+                <a href="#process" class="nav-link">Process</a>
+                <a href="#testimonials" class="nav-link">Testimonials</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+        </div>
     </nav>
 
     <div class="hero-moving">

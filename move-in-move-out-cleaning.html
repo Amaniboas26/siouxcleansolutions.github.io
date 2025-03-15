@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Move-In/Move-Out Cleaning Services - Sioux Clean Solutions</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Navigation Styles - Same as other pages */
+        nav {
+            background-color: #0078D4;
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* ... (Previous navigation styles) ... */
+
+        .hero-moving {
+            background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
+                url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200');
+            background-size: cover;
+            background-position: center;
+            padding: 180px 20px;
+            color: white;
+            text-align: center;
+            margin-top: 80px;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #0078D4;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .service-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .service-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-card i {
+            font-size: 3rem;
+            color: #0078D4;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .checklist-section {
+            background-color: #f8f9fa;
+            padding: 80px 0;
+            margin: 60px 0;
+        }
+
+        .checklist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .checklist-item {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .checklist-item i {
+            color: #0078D4;
+            font-size: 1.5rem;
+            margin-top: 3px;
+        }
+
+        .pricing-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #0078D4 0%, #005AA3 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .pricing-section .section-title {
+            color: white;
+        }
+
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .pricing-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            color: #333;
+            text-align: left;
+        }
+
+        .pricing-card h3 {
+            color: #0078D4;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .pricing-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pricing-features i {
+            color: #0078D4;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #FFA500;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            background-color: #ff9100;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 165, 0, 0.3);
+        }
+
+        .testimonials-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .testimonial-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .testimonial-card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        footer {
+            background-color: #005AA3;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .service-cards,
+            .checklist-grid,
+            .pricing-cards,
+            .testimonial-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation (Same as other pages) -->
+    <nav>
+        <!-- ... Navigation content ... -->
+    </nav>
+
+    <div class="hero-moving">
+        <div class="hero-content">
+            <h1>Move-In/Move-Out Cleaning</h1>
+            <p>Professional cleaning services to ensure a smooth transition to your new home</p>
+            <a href="#contact" class="cta-button">Get Free Quote</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <section>
+            <h2 class="section-title">Why Choose Our Move-In/Move-Out Cleaning?</h2>
+            <p class="section-subtitle">Let our expert team handle the cleaning while you focus on your move</p>
+            
+            <div class="service-cards">
+                <div class="service-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Secure Your Deposit</h3>
+                    <p>Our thorough cleaning ensures you meet all landlord requirements for a full deposit return</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Save Time</h3>
+                    <p>Focus on your move while we handle the detailed cleaning of your property</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-sparkles"></i>
+                    <h3>Fresh Start</h3>
+                    <p>Move into a spotlessly clean home ready for your new beginning</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <section class="checklist-section">
+        <div class="container">
+            <h2 class="section-title">Our Comprehensive Cleaning Checklist</h2>
+            <div class="checklist-grid">
+                <div class="checklist-item">
+                    <i class="fas fa-sink"></i>
+                    <div>
+                        <h4>Kitchen</h4>
+                        <p>Deep clean appliances, counters, cabinets, and floors</p>
+                    </div>
+                </div>
+                <div class="checklist-item">
+                    <i class="fas fa-bath"></i>
+                    <div>
+                        <h4>Bathrooms</h4>
+                        <p>Sanitize fixtures, tiles, and all surfaces</p>
+                    </div>
+                </div>
+                <div class="checklist-item">
+                    <i class="fas fa-bed"></i>
+                    <div>
+                        <h4>Bedrooms</h4>
+                        <p>Dust, vacuum, and clean all surfaces</p>
+                    </div>
+                </div>
+                <div class="checklist-item">
+                    <i class="fas fa-broom"></i>
+                    <div>
+                        <h4>Living Areas</h4>
+                        <p>Thorough cleaning of all living spaces</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing-section">
+        <div class="container">
+            <h2 class="section-title">Simple, Transparent Pricing</h2>
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <h3>Move-Out Clean</h3>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Deep cleaning of all rooms</li>
+                        <li><i class="fas fa-check"></i> Inside cabinet cleaning</li>
+                        <li><i class="fas fa-check"></i> Appliance cleaning</li>
+                        <li><i class="fas fa-check"></i> Window cleaning</li>
+                        <li><i class="fas fa-check"></i> Baseboards and corners</li>
+                    </ul>
+                    <a href="#contact" class="cta-button">Get Quote</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Move-In Clean</h3>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Sanitization of all surfaces</li>
+                        <li><i class="fas fa-check"></i> Dust removal</li>
+                        <li><i class="fas fa-check"></i> Floor cleaning</li>
+                        <li><i class="fas fa-check"></i> Bathroom deep clean</li>
+                        <li><i class="fas fa-check"></i> Kitchen deep clean</li>
+                    </ul>
+                    <a href="#contact" class="cta-button">Get Quote</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">What Our Clients Say</h2>
+            <div class="testimonial-cards">
+                <div class="testimonial-card">
+                    <p>"They made my move-out process so much easier. Got my full deposit back thanks to their thorough cleaning!"</p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/1.jpg" alt="Sarah M.">
+                        <div>
+                            <strong>Sarah M.</strong>
+                            <p>Sioux Falls, SD</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Moving into a spotlessly clean home made all the difference. Highly recommend their move-in cleaning service!"</p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="Mike R.">
+                        <div>
+                            <strong>Mike R.</strong>
+                            <p>Sioux Falls, SD</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="section-title">Ready for a Stress-Free Move?</h2>
+            <p class="section-subtitle">Contact us today for a free, customized quote for your move-in/move-out cleaning needs</p>
+            <a href="tel:6054128105" class="cta-button">Call (605) 412-8105</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Sioux Clean Solutions. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Add your JavaScript here
+    </script>
+</body>
+</html>

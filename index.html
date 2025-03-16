@@ -1,305 +1,536 @@
-/* Base styles and variables remain the same */
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sioux Clean Solutions</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- ModernMaid Scripts -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://modernmaid.io/iframe-sdk/modernmaid-iframe-sdk.js?version=0.1"></script>
+    <script>
+        window.ModernmaidIframeSdk.setup("5b828705ee8b438220ecd3adae7b5151");
+    </script>
 
-/* Mobile-First Media Queries */
-@media (max-width: 480px) {
-    .nav-logo span {
-        font-size: 18px;
-    }
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    .nav-logo img {
-        height: 40px;
-    }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
 
-    .hero h1 {
-        font-size: 2rem;
-        padding: 0 15px;
-    }
+        /* Navigation */
+        nav {
+            background-color: #0078D4;
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
 
-    .hero p {
-        font-size: 1rem;
-        padding: 0 15px;
-    }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
 
-    .cta-button {
-        width: 80%;
-        margin: 10px auto;
-        display: block;
-    }
+        .logo {
+            width: 50px;
+            height: 50px;
+        }
 
-    .services-grid,
-    .process-grid,
-    .testimonials-grid {
-        grid-template-columns: 1fr;
-        padding: 0 15px;
-    }
+        .brand {
+            display: flex;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+            gap: 1rem;
+        }
 
-    .service-card,
-    .testimonial-card {
-        padding: 20px;
-    }
+        .brand-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+        }
 
-    .contact-form {
-        padding: 0 15px;
-    }
-}
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
 
-/* Tablet Media Queries */
-@media (min-width: 481px) and (max-width: 768px) {
-    .nav-container {
-        padding: 0 20px;
-    }
+        .phone-number {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
 
-    .hero h1 {
-        font-size: 2.5rem;
-    }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
 
-    .services-grid,
-    .process-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-        padding: 0 20px;
-    }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
 
-    .testimonials-grid {
-        grid-template-columns: 1fr;
-        max-width: 500px;
-        margin: 0 auto;
-    }
-}
+        /* Dropdown Styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
 
-/* Mobile Navigation */
-.mobile-nav {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.95);
-    z-index: 1000;
-    padding: 20px;
-}
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #0078D4;
+            min-width: 250px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            border-radius: 0 0 4px 4px;
+            z-index: 1001;
+        }
 
-.mobile-nav.active {
-    display: block;
-}
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
 
-.mobile-nav-links {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    gap: 20px;
-}
+        .dropdown-menu li {
+            display: block;
+            margin: 0;
+            width: 100%;
+        }
 
-.mobile-nav-links a {
-    color: var(--white);
-    text-decoration: none;
-    font-size: 1.2rem;
-    padding: 10px;
-}
+        .dropdown-menu a {
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s;
+            white-space: nowrap;
+            text-align: left;
+        }
 
-.close-menu {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    color: var(--white);
-    font-size: 24px;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
+        .dropdown-menu a:hover {
+            background-color: #005aa3;
+        }
 
-/* Touch-friendly dropdown */
-@media (max-width: 768px) {
-    .dropdown-menu {
-        position: static;
-        background: transparent;
-        box-shadow: none;
-        display: none;
-        padding-left: 20px;
-    }
+        .fa-chevron-down {
+            margin-left: 5px;
+            font-size: 12px;
+        }
 
-    .dropdown.active .dropdown-menu {
-        display: block;
-    }
+        .menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+                /* Hero Section */
+        .hero {
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                            url('https://images.unsplash.com/photo-1581578731548-c64695cc6952');
+            min-height: 100vh;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 80px;
+            text-align: center;
+            color: white;
+        }
 
-    .dropdown > a {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-    }
-}
-<!-- Updated Navigation Structure -->
-<nav class="nav">
-    <div class="nav-container">
-        <a href="#home" class="nav-logo">
-            <img src="Secondary.png" alt="Sioux Clean Solutions Logo">
-            <span>Sioux Clean Solutions</span>
-        </a>
-        <button class="menu-btn" aria-label="Open Menu">
-            <i class="fas fa-bars"></i>
-        </button>
-        <!-- Mobile Navigation -->
-        <div class="mobile-nav">
-            <button class="close-menu" aria-label="Close Menu">
-                <i class="fas fa-times"></i>
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero-logo {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            background-color: #FFA500;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            font-weight: 500;
+            text-transform: uppercase;
+            margin: 0.5rem;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #0078D4;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Services */
+        .services {
+            background-color: #f9f9f9;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        /* Process */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .process-item {
+            text-align: center;
+        }
+
+        .process-item img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background-color: #f0f8ff;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        /* Contact */
+        .contact {
+            background-color: #0078D4;
+            color: white;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #005AA3;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                width: 100%;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background-color: #0078D4;
+                padding: 1rem;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .dropdown-menu {
+                position: static;
+                width: 100%;
+                background-color: #005aa3;
+                box-shadow: none;
+                text-align: left;
+                padding: 0;
+            }
+
+            .dropdown-menu a {
+                padding-left: 30px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-logo {
+                width: 80px;
+                height: 80px;
+            }
+
+            .process-item img {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="#home" class="brand">
+                <img src="Secondary.png" alt="New Logo" class="logo" width="200" height="200">
+                <span class="brand-name">Sioux Clean Solutions</span>
+            </a>
+            <button class="menu-btn">
+                <i class="fas fa-bars"></i>
             </button>
-            <div class="mobile-nav-links">
-                <a href="#home" class="mobile-link">Home</a>
-                <div class="dropdown">
-                    <a href="#services" class="mobile-link">Services <i class="fas fa-chevron-down"></i></a>
-                    <div class="dropdown-menu">
-                        <a href="residential-cleaning.html">Residential Cleaning</a>
-                        <a href="commercial-cleaning.html">Commercial Cleaning</a>
-                        <a href="deep-clean.html">Deep Cleaning</a>
-                        <a href="move-in-move-out-cleaning.html">Move-in/Move-out</a>
-                    </div>
-                </div>
-                <a href="#process" class="mobile-link">Process</a>
-                <a href="#testimonials" class="mobile-link">Testimonials</a>
-                <a href="#contact" class="mobile-link">Contact</a>
-                <a href="tel:6054128105" class="phone-number mobile-phone">
+            <div class="nav-links">
+                <a href="tel:6054128105" class="phone-number">
                     <i class="fas fa-phone"></i>
                     (605) 412-8105
                 </a>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#services">Services <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="residential-cleaning.html">Residential Cleaning</a></li>
+                            <li><a href="commercial-cleaning.html">Commercial Cleaning</a></li>
+                            <li><a href="deep-clean.html">Deep Cleaning</a></li>
+                            <li><a href="move-in-move-out-cleaning">Move-in/Move-out Cleaning</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#process">Process</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
             </div>
         </div>
-        <!-- Desktop Navigation -->
-        <div class="nav-links desktop-only">
-            <!-- ... existing desktop navigation ... -->
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Sioux Clean Solutions</h1>
+            <p>Professional Cleaning Services That Exceed Expectations</p>
+            <button class="cta-button" onclick="window.open('https://modernmaid.io/iframes/bookings/5b828705ee8b438220ecd3adae7b5151', '_blank')">Book Now</button>
+            <button class="cta-button" onclick="window.location.href='/quote-form.html';">Get Quote</button>
         </div>
-    </div>
-</nav>
+    </section>
 
-<!-- Updated JavaScript for better mobile handling -->
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Mobile Menu Handling
+    <section id="services" class="services">
+        <h2 class="section-title">Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Residential Cleaning</h3>
+                <p>Comprehensive home cleaning services tailored to your needs.</p>
+            </div>
+            <div class="service-card">
+                <h3>Commercial Cleaning</h3>
+                <p>Professional cleaning solutions for businesses and offices.</p>
+            </div>
+            <div class="service-card">
+                <h3>Deep Cleaning</h3>
+                <p>Thorough cleaning for those special occasions or seasonal needs.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="process" class="cleaning-process">
+        <h2 class="section-title">Our Cleaning Process</h2>
+        <div class="process-grid">
+            <div class="process-item">
+                <img src="https://images.unsplash.com/photo-1628177142898-93e36e4e3a50" alt="Assessment">
+                <h3>1. Assessment</h3>
+                <p>Thorough evaluation of cleaning needs</p>
+            </div>
+            <div class="process-item">
+                <img src="https://images.unsplash.com/photo-1603712725038-e9334ae8f39f" alt="Deep Cleaning">
+                <h3>2. Deep Clean</h3>
+                <p>Comprehensive cleaning of all areas</p>
+            </div>
+            <div class="process-item">
+                <img src="https://images.unsplash.com/photo-1582769923195-c6e60dc1d8dc" alt="Quality Check">
+                <h3>3. Quality Check</h3>
+                <p>Detailed inspection of cleaned areas</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <h2 class="section-title">Client Testimonials</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p>"Outstanding service! They were thorough, professional, and exceeded my expectations."</p>
+                <p>- Sarah M.</p>
+            </div>
+            <div class="testimonial-card">
+                <p>"Best cleaning service I've ever used. Attention to detail is amazing!"</p>
+                <p>- John D.</p>
+            </div>
+            <div class="testimonial-card">
+                <p>"Reliable, trustworthy, and always do an excellent job. Highly recommend!"</p>
+                <p>- Lisa R.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2 class="section-title">Contact Us</h2>
+        <form class="contact-form" action="https://formspree.io/f/xyzkrrnr" method="POST" id="contact-form">
+            <div class="form-group">
+                <input type="text" name="name" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+                <input type="email" name="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+                <input type="tel" name="phone" placeholder="Your Phone" required>
+            </div>
+            <div class="form-group">
+                <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="cta-button">Send Message</button>
+        </form>
+        <div id="success-message" style="display:none; text-align: center; border: 1px solid #4CAF50; padding: 15px; margin: 20px auto; max-width: 600px; background-color: #dff0d8; color: #3c763d; border-radius: 5px;">
+            Your message has been sent successfully! Thank you for contacting us.
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Sioux Clean Solutions. All rights reserved.</p>
+    </footer>
+
+    <script>
         const menuBtn = document.querySelector('.menu-btn');
-        const closeBtn = document.querySelector('.close-menu');
-        const mobileNav = document.querySelector('.mobile-nav');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
-        const dropdowns = document.querySelectorAll('.dropdown');
+        const navLinks = document.querySelector('.nav-links');
 
-        // Open mobile menu
         menuBtn.addEventListener('click', () => {
-            mobileNav.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            navLinks.classList.toggle('active');
         });
 
-        // Close mobile menu
-        closeBtn.addEventListener('click', () => {
-            mobileNav.classList.remove('active');
-            document.body.style.overflow = '';
-        });
-
-        // Handle mobile links
-        mobileLinks.forEach(link => {
+        document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
-                mobileNav.classList.remove('active');
-                document.body.style.overflow = '';
+                navLinks.classList.remove('active');
             });
         });
 
-        // Handle dropdowns on mobile
-        dropdowns.forEach(dropdown => {
-            const dropdownToggle = dropdown.querySelector('a');
-            dropdownToggle.addEventListener('click', (e) => {
-                if (window.innerWidth <= 768) {
-                    e.preventDefault();
-                    dropdown.classList.toggle('active');
-                }
-            });
-        });
-
-        // Touch event handling for better mobile interaction
-        document.addEventListener('touchstart', handleTouchStart, false);
-        document.addEventListener('touchmove', handleTouchMove, false);
-
-        let xDown = null;
-        let yDown = null;
-
-        function handleTouchStart(evt) {
-            xDown = evt.touches[0].clientX;
-            yDown = evt.touches[0].clientY;
-        }
-
-        function handleTouchMove(evt) {
-            if (!xDown || !yDown) return;
-
-            const xUp = evt.touches[0].clientX;
-            const yUp = evt.touches[0].clientY;
-
-            const xDiff = xDown - xUp;
-            const yDiff = yDown - yUp;
-
-            if (Math.abs(xDiff) > Math.abs(yDiff)) {
-                if (xDiff > 0) {
-                    // Swipe left - close menu
-                    mobileNav.classList.remove('active');
-                    document.body.style.overflow = '';
-                }
-            }
-
-            xDown = null;
-            yDown = null;
-        }
-
-        // Smooth scrolling with offset for fixed header
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const headerOffset = 70;
-                const element = document.querySelector(this.getAttribute('href'));
-                const elementPosition = element.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
+        document.getElementById('contact-form').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            
+            try {
+                const response = await fetch(this.action, {
+                    method: 'POST',
+                    body: new FormData(this),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
                 });
-            });
-        });
 
-        // Form improvements for mobile
-        const form = document.querySelector('.contact-form');
-        const inputs = form.querySelectorAll('input, textarea');
-
-        inputs.forEach(input => {
-            // Add active state for better touch feedback
-            input.addEventListener('focus', () => {
-                input.parentElement.classList.add('active');
-            });
-
-            input.addEventListener('blur', () => {
-                input.parentElement.classList.remove('active');
-            });
-
-            // Auto-expand textarea
-            if (input.tagName.toLowerCase() === 'textarea') {
-                input.addEventListener('input', function() {
-                    this.style.height = 'auto';
-                    this.style.height = this.scrollHeight + 'px';
-                });
-            }
-        });
-
-        // Responsive image loading
-        function loadResponsiveImages() {
-            const images = document.querySelectorAll('img[data-src]');
-            images.forEach(img => {
-                if (window.innerWidth <= 768) {
-                    img.src = img.getAttribute('data-src-mobile');
+                if (response.ok) {
+                    document.getElementById('success-message').style.display = 'block';
+                    this.reset();
+                    setTimeout(() => {
+                        document.getElementById('success-message').style.display = 'none';
+                    }, 5000);
                 } else {
-                    img.src = img.getAttribute('data-src');
+                    throw new Error('Network response was not ok');
                 }
-            });
-        }
-
-        window.addEventListener('resize', loadResponsiveImages);
-        loadResponsiveImages();
-    });
-</script>
+            } catch (error) {
+                console.error('Error:', error);
+                alert('There was a problem submitting your form. Please try again.');
+            }
+        });
+    </script>
+</body>
+</html>

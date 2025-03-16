@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deep Cleaning Services | FreshSpace</title>
+    <title>Sioux Clean Solutions | Professional Cleaning Services</title>
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -11,7 +11,6 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
-    <!-- Custom Styles -->
     <style>
         :root {
             --primary: #0078D4;
@@ -44,10 +43,9 @@
             top: 0;
             left: 0;
             right: 0;
-            background: rgba(0,0,0,0.9);
+            background: #1a1a1a;
             padding: 1rem 0;
             z-index: 1000;
-            transition: all 0.3s ease;
         }
 
         .nav-container {
@@ -59,41 +57,17 @@
             align-items: center;
         }
 
-        .nav-logo {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            color: var(--white);
-            text-decoration: none;
-        }
-
-        .nav-logo img {
-            height: 50px;
-            width: auto;
-        }
-
         .nav-links {
             display: flex;
+            gap: 2.5rem;
             align-items: center;
-        }
-
-        .nav-links ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-            align-items: center;
-            margin: 0;
-            padding: 0;
-        }
-
-        .nav-links li {
-            position: relative;
         }
 
         .nav-link {
             color: var(--white);
             text-decoration: none;
             font-weight: 500;
+            font-size: 1rem;
             transition: color 0.3s ease;
         }
 
@@ -101,61 +75,57 @@
             color: var(--secondary);
         }
 
-        .dropdown-menu {
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
             position: absolute;
             top: 100%;
             left: 0;
-            background: var(--white);
+            background: white;
             min-width: 200px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            display: none;
-            z-index: 1000;
+            border-radius: 4px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
-        .dropdown:hover .dropdown-menu {
+        .dropdown:hover .dropdown-content {
             display: block;
         }
 
-        .dropdown-menu li {
-            margin: 0;
-        }
-
-        .dropdown-menu a {
-            color: var(--text-dark);
+        .dropdown-content a {
+            color: #333;
             padding: 12px 20px;
-            display: block;
             text-decoration: none;
+            display: block;
             transition: background 0.3s ease;
         }
 
-        .dropdown-menu a:hover {
-            background: var(--light-bg);
-            color: var(--primary);
+        .dropdown-content a:hover {
+            background: #f5f5f5;
         }
 
-        .cta-button {
-            display: inline-block;
-            background: var(--secondary);
-            color: var(--white);
+        .phone-button {
+            background: #FFA500;
+            color: white;
             padding: 10px 20px;
-            border-radius: var(--border-radius);
+            border-radius: 5px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
-            margin-left: 2rem;
         }
 
-        .cta-button:hover {
+        .phone-button:hover {
+            background: #ff9100;
             transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(255,165,0,0.3);
         }
 
         /* Hero Section */
         .hero {
             height: 100vh;
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-                        url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&q=80&w=2070') center/cover;
+                        url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&q=80') center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -212,8 +182,7 @@
             max-width: 600px;
             margin: 0 auto;
         }
-
-        /* Services Grid */
+                /* Services Grid */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -254,33 +223,7 @@
             border-bottom: none;
         }
 
-        /* Process Timeline */
-        .process-timeline {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .process-step {
-            text-align: center;
-        }
-
-        .step-number {
-            width: 50px;
-            height: 50px;
-            background: var(--primary);
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-weight: bold;
-            font-size: 1.25rem;
-        }
-
-        /* Mobile Menu Button */
+        /* Mobile Menu Styles */
         .mobile-menu-btn {
             display: none;
             background: none;
@@ -290,7 +233,6 @@
             cursor: pointer;
         }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
             .mobile-menu-btn {
                 display: block;
@@ -302,34 +244,29 @@
                 top: 100%;
                 left: 0;
                 right: 0;
-                background: rgba(0,0,0,0.95);
-                padding: 20px;
-            }
-
-            .nav-links.active {
-                display: block;
-            }
-
-            .nav-links ul {
+                background: #1a1a1a;
                 flex-direction: column;
+                padding: 20px;
                 gap: 1rem;
             }
 
-            .dropdown-menu {
+            .nav-links.active {
+                display: flex;
+            }
+
+            .dropdown-content {
                 position: static;
                 background: transparent;
                 box-shadow: none;
+            }
+
+            .dropdown-content a {
+                color: white;
                 padding-left: 20px;
             }
 
-            .dropdown-menu a {
-                color: var(--white);
-            }
-
-            .cta-button {
-                margin: 20px 0 0 0;
-                display: block;
-                text-align: center;
+            .phone-button {
+                margin: 20px 0;
             }
 
             .hero h1 {
@@ -340,8 +277,7 @@
                 font-size: 2rem;
             }
 
-            .services-grid,
-            .process-timeline {
+            .services-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -351,33 +287,27 @@
     <!-- Navigation Bar -->
     <nav class="nav">
         <div class="nav-container">
-            <a href="index.html" class="nav-logo">
-                <img src="Secondary.png" alt="New Logo" class="logo">
-            </a>
             <button class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
             </button>
             <div class="nav-links">
-                <ul>
-                    <li><a href="#home" class="nav-link">Home</a></li>
-                    <li class="dropdown">
-                        <a href="#services" class="nav-link">Services <i class="fas fa-chevron-down"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="residential-cleaning.html">Residential Cleaning</a></li>
-                            <li><a href="commercial-cleaning.html">Commercial Cleaning</a></li>
-                            <li><a href="deep-clean.html">Deep Cleaning</a></li>
-                            <li><a href="move-in-move-out-cleaning.html">Move-in/Move-out Cleaning</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#process" class="nav-link">Process</a></li>
-                    <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
-                </ul>
-                <a href="tel:6054128105" class="cta-button">
-                    <i class="fas fa-phone"></i>
-                    (605) 412-8105
-                </a>
+                <a href="#home" class="nav-link">Home</a>
+                <div class="dropdown">
+                    <a href="#services" class="nav-link">Services ▼</a>
+                    <div class="dropdown-content">
+                        <a href="residential-cleaning.html">Residential Cleaning</a>
+                        <a href="commercial-cleaning.html">Commercial Cleaning</a>
+                        <a href="deep-clean.html">Deep Cleaning</a>
+                        <a href="move-in-move-out-cleaning.html">Move-in/Move-out Cleaning</a>
+                    </div>
+                </div>
+                <a href="#process" class="nav-link">Process</a>
+                <a href="#testimonials" class="nav-link">Testimonials</a>
+                <a href="#contact" class="nav-link">Contact</a>
             </div>
+            <a href="tel:6054128105" class="phone-button">
+                📞 (605) 412-8105
+            </a>
         </div>
     </nav>
 
@@ -385,83 +315,46 @@
     <section class="hero" id="home">
         <div class="hero-content">
             <h1>Rediscover The Beauty of Your Home</h1>
-            <p>with FreshSpace's Deep Cleaning</p>
-            <a href="javascript:void(0);" class="cta-button" onclick="window.location.href='/quote-form.html';">Get Your Free Quote</a>
+            <p>Professional Cleaning Services in Sioux Falls</p>
+            <a href="javascript:void(0);" class="phone-button" onclick="window.location.href='/quote-form.html';">
+                Get Your Free Quote
+            </a>
         </div>
     </section>
 
-    <!-- About Deep Cleaning Section -->
+    <!-- Services Section -->
     <section class="section" id="services">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">What Is a Deep Cleaning Service?</h2>
-                <p class="section-subtitle">Our professional deep cleaning service goes beyond surface-level cleaning to restore your home's beauty.</p>
+                <h2 class="section-title">Our Cleaning Services</h2>
+                <p class="section-subtitle">Professional cleaning solutions tailored to your needs</p>
             </div>
             <div class="services-grid">
                 <div class="service-card">
-                    <h3>Comprehensive Cleaning</h3>
+                    <h3>Residential Cleaning</h3>
                     <ul>
-                        <li>Cleaning all dust and dirt on surfaces</li>
-                        <li>Baseboard and corner detail cleaning</li>
-                        <li>Disinfecting light switches and door knobs</li>
+                        <li>Regular house cleaning</li>
+                        <li>Deep cleaning services</li>
+                        <li>Custom cleaning plans</li>
                     </ul>
                 </div>
                 <div class="service-card">
-                    <h3>Detailed Attention</h3>
+                    <h3>Commercial Cleaning</h3>
                     <ul>
-                        <li>Cleaning inside drawers and cabinets</li>
-                        <li>Polishing stainless steel and chrome fixtures</li>
-                        <li>Thorough cleaning under furniture</li>
+                        <li>Office cleaning</li>
+                        <li>Retail space cleaning</li>
+                        <li>Industrial cleaning</li>
                     </ul>
                 </div>
                 <div class="service-card">
                     <h3>Specialty Services</h3>
                     <ul>
+                        <li>Move-in/Move-out cleaning</li>
                         <li>Post-construction cleanup</li>
-                        <li>Floor stripping and waxing</li>
-                        <li>Emergency cleaning services</li>
+                        <li>Event cleanup</li>
                     </ul>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- How Often Section -->
-    <section class="section" id="process">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">How Often Do You Need a Deep Clean?</h2>
-                <p class="section-subtitle">Maintain a fresh and healthy living space with our deep cleaning services.</p>
-            </div>
-            <div class="process-timeline">
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <h3>Annual Deep Clean</h3>
-                    <p>Ideal for maintaining a fresh and healthy home.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <h3>Every 3-6 Months</h3>
-                    <p>Recommended for households with children, pets, or allergies.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <h3>As Needed</h3>
-                    <p>Perfect for post-construction or after special events.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Call to Action Section -->
-    <section class="section" style="background: var(--primary); color: var(--white); text-align: center; padding: 60px 20px;">
-        <div class="container">
-            <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Ready to Transform Your Home?</h2>
-            <p style="font-size: 1.25rem; margin-bottom: 30px;">Book a deep clean today and experience the FreshSpace difference!</p>
-            <a href="javascript:void(0);" class="cta-button" style="background: var(--white); color: var(--primary);" 
-               onclick="window.open('https://modernmaid.io/iframes/bookings/5b828705ee8b438220ecd3adae7b5151', '_blank')">
-                Book Now
-            </a>
         </div>
     </section>
 
@@ -469,7 +362,6 @@
         // Mobile Menu Toggle
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const navLinks = document.querySelector('.nav-links');
-        const dropdowns = document.querySelectorAll('.dropdown');
 
         mobileMenuBtn.addEventListener('click', () => {
             navLinks.classList.toggle('active');
@@ -486,7 +378,7 @@
             }
         });
 
-        // Smooth scrolling for anchor links
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -508,16 +400,7 @@
                 }
             });
         });
-
-        // Handle navigation background on scroll
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('.nav');
-            if (window.scrollY > 50) {
-                nav.style.background = 'rgba(0,0,0,0.95)';
-            } else {
-                nav.style.background = 'rgba(0,0,0,0.9)';
-            }
-        });
     </script>
 </body>
 </html>
+        

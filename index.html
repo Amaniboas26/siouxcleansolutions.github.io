@@ -1,591 +1,277 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Professional cleaning services in Sioux Falls - residential and commercial cleaning solutions">
-    <title>Sioux Clean Solutions | Professional Cleaning Services</title>
-    
-    <!-- Preconnect to external resources -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <!-- ModernMaid Integration -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://modernmaid.io/iframe-sdk/modernmaid-iframe-sdk.js?version=0.1"></script>
-    <script>
-        window.ModernmaidIframeSdk.setup("5b828705ee8b438220ecd3adae7b5151");
-    </script>
+/* Desktop-specific styles */
+@media (min-width: 1024px) {
+    .nav-container {
+        max-width: 1400px;
+        padding: 0 50px;
+    }
 
-    <style>
-        :root {
-            --primary: #0078D4;
-            --primary-dark: #005AA3;
-            --secondary: #FFA500;
-            --text-dark: #333333;
-            --text-light: #666666;
-            --white: #FFFFFF;
-            --light-bg: #F8F9FA;
-            --border-radius: 10px;
-            --box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            --transition: all 0.3s ease;
-        }
+    .nav-logo img {
+        height: 60px;
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    .nav-links {
+        gap: 3rem;
+    }
 
-        html {
-            scroll-behavior: smooth;
-        }
+    .hero-content {
+        max-width: 1000px;
+    }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            overflow-x: hidden;
-        }
+    .hero h1 {
+        font-size: 4rem;
+    }
 
-        /* Navigation Styles */
-        .nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0,0,0,0.9);
-            padding: 1rem 0;
-            z-index: 1000;
-            transition: var(--transition);
-        }
+    .hero p {
+        font-size: 1.5rem;
+    }
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    .cta-button {
+        padding: 20px 40px;
+        font-size: 1.2rem;
+        margin: 0 15px;
+    }
 
-        .nav-logo {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            color: var(--white);
-            text-decoration: none;
-        }
+    /* Services Grid for larger screens */
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 1400px;
+        gap: 40px;
+        padding: 0 50px;
+    }
 
-        .nav-logo img {
-            height: 50px;
-            width: auto;
-        }
+    .service-card {
+        padding: 40px;
+    }
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
+    /* Process section for larger screens */
+    .process-grid {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 1400px;
+        gap: 60px;
+        padding: 0 50px;
+    }
 
-        .nav-link {
-            color: var(--white);
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
-        }
+    .process-item img {
+        width: 250px;
+        height: 250px;
+    }
 
-        .nav-link:hover {
-            color: var(--secondary);
-        }
+    /* Testimonials for larger screens */
+    .testimonials-grid {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 1400px;
+        gap: 40px;
+        padding: 0 50px;
+    }
 
-        .menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--white);
-            font-size: 1.5rem;
-            cursor: pointer;
-            z-index: 1002;
-        }
+    .testimonial-card {
+        padding: 40px;
+    }
 
-        /* Dropdown Menu */
-        .dropdown {
-            position: relative;
-        }
+    /* Contact form for larger screens */
+    .contact-form {
+        max-width: 800px;
+        padding: 0;
+    }
+}
 
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: var(--primary);
-            min-width: 200px;
-            border-radius: 0 0 var(--border-radius) var(--border-radius);
-            box-shadow: var(--box-shadow);
-        }
+/* Large Desktop styles */
+@media (min-width: 1440px) {
+    .nav-container,
+    .services-grid,
+    .process-grid,
+    .testimonials-grid {
+        max-width: 1600px;
+    }
 
-        .dropdown:hover .dropdown-menu {
-            display: block;
-        }
+    .hero-content {
+        max-width: 1200px;
+    }
 
-        .dropdown-menu a {
-            padding: 12px 20px;
-            display: block;
-            color: var(--white);
-            text-decoration: none;
-            transition: var(--transition);
-        }
+    .hero h1 {
+        font-size: 4.5rem;
+    }
 
-        .dropdown-menu a:hover {
-            background: var(--primary-dark);
-        }
+    .contact-form {
+        max-width: 1000px;
+    }
+}
+<!-- Services Section -->
+<section id="services" class="services">
+    <h2 class="section-title fade-in">Our Professional Services</h2>
+    <div class="services-grid">
+        <div class="service-card fade-in">
+            <div class="service-icon">
+                <i class="fas fa-home"></i>
+            </div>
+            <h3>Residential Cleaning</h3>
+            <p>Comprehensive home cleaning services tailored to your needs.</p>
+            <ul>
+                <li>Regular House Cleaning</li>
+                <li>Deep Cleaning Services</li>
+                <li>Move In/Out Cleaning</li>
+                <li>Spring Cleaning</li>
+            </ul>
+        </div>
+        <div class="service-card fade-in">
+            <div class="service-icon">
+                <i class="fas fa-building"></i>
+            </div>
+            <h3>Commercial Cleaning</h3>
+            <p>Professional cleaning solutions for businesses.</p>
+            <ul>
+                <li>Office Cleaning</li>
+                <li>Retail Space Cleaning</li>
+                <li>Medical Facility Cleaning</li>
+                <li>Industrial Cleaning</li>
+            </ul>
+        </div>
+        <div class="service-card fade-in">
+            <div class="service-icon">
+                <i class="fas fa-star"></i>
+            </div>
+            <h3>Specialty Services</h3>
+            <p>Additional cleaning services for specific needs.</p>
+            <ul>
+                <li>Window Cleaning</li>
+                <li>Carpet Cleaning</li>
+                <li>Post-Construction Cleanup</li>
+                <li>Event Cleanup</li>
+            </ul>
+        </div>
+    </div>
+</section>
 
-        /* Hero Section */
-        .hero {
-            position: relative;
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-                        url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&q=80') center/cover;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--white);
-            padding: 0 20px;
-        }
+<!-- Process Section -->
+<section id="process" class="process">
+    <h2 class="section-title fade-in">Our Cleaning Process</h2>
+    <div class="process-grid">
+        <div class="process-item fade-in">
+            <img src="https://images.unsplash.com/photo-1628177142898-93e36e4e3a50" alt="Initial Assessment">
+            <h3>1. Assessment</h3>
+            <p>We evaluate your space and create a customized cleaning plan.</p>
+        </div>
+        <div class="process-item fade-in">
+            <img src="https://images.unsplash.com/photo-1603712725038-e9334ae8f39f" alt="Professional Cleaning">
+            <h3>2. Professional Cleaning</h3>
+            <p>Our trained team executes the cleaning plan with precision.</p>
+        </div>
+        <div class="process-item fade-in">
+            <img src="https://images.unsplash.com/photo-1582769923195-c6e60dc1d8dc" alt="Quality Check">
+            <h3>3. Quality Assurance</h3>
+            <p>Final inspection to ensure everything meets our high standards.</p>
+        </div>
+    </div>
+</section>
 
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: var(--secondary);
-            color: var(--white);
-            padding: 15px 30px;
-            border-radius: var(--border-radius);
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(255,165,0,0.3);
-        }
-                /* Services Section */
-        .services {
-            background: var(--light-bg);
-            padding: 80px 0;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .service-card {
-            background: var(--white);
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--box-shadow);
-            transition: var(--transition);
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .service-card h3 {
-            color: var(--primary);
-            margin: 20px 0;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .service-icon {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin: 20px 0;
-        }
-
-        /* Process Section */
-        .process {
-            padding: 80px 0;
-        }
-
-        .process-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .process-item {
-            text-align: center;
-            position: relative;
-        }
-
-        .process-item img {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 20px;
-            box-shadow: var(--box-shadow);
-        }
-
-        /* Testimonials Section */
-        .testimonials {
-            background: var(--light-bg);
-            padding: 80px 0;
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .testimonial-card {
-            background: var(--white);
-            padding: 30px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-        }
-
-        .testimonial-card p:first-child {
-            font-style: italic;
-            margin-bottom: 20px;
-        }
-
-        .testimonial-card p:last-child {
-            font-weight: 600;
-            color: var(--primary);
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 80px 0;
-            background: var(--primary);
-            color: var(--white);
-        }
-
-        .contact .section-title {
-            color: var(--white);
-        }
-
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 15px;
-            border: none;
-            border-radius: var(--border-radius);
-            font-size: 16px;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--primary-dark);
-            color: var(--white);
-            text-align: center;
-            padding: 20px;
-        }
-
-        /* Back to Top Button */
-        .back-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: var(--secondary);
-            color: var(--white);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            opacity: 0;
-            transition: var(--transition);
-            z-index: 999;
-        }
-
-        .back-to-top.active {
-            opacity: 1;
-        }
-
-        /* Mobile Responsive Styles */
-        @media (max-width: 768px) {
-            .nav-container {
-                padding: 0.5rem;
-            }
-
-            .menu-btn {
-                display: block;
-            }
-
-            .nav-links {
-                display: none;
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: rgba(0, 120, 212, 0.98);
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                padding: 50px 20px;
-                z-index: 1001;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .nav-links ul {
-                flex-direction: column;
-                align-items: center;
-                gap: 20px;
-            }
-
-            .dropdown-menu {
-                position: static;
-                background: transparent;
-                box-shadow: none;
-                width: 100%;
-                text-align: center;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .cta-button {
-                width: 100%;
-                margin: 10px 0;
-            }
-
-            .services-grid,
-            .process-grid,
-            .testimonials-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .process-item img {
-                width: 150px;
-                height: 150px;
-            }
-        }
-
-        /* Animation Classes */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
-</head>
-<body>
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="nav-container">
-            <a href="#home" class="nav-logo">
-                <img src="Secondary.png" alt="Sioux Clean Solutions Logo">
-                <span>Sioux Clean Solutions</span>
-            </a>
-            <button class="menu-btn">
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="nav-links">
-                <a href="tel:6054128105" class="phone-number">
-                    <i class="fas fa-phone"></i>
-                    (605) 412-8105
-                </a>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li class="dropdown">
-                        <a href="#services">Services <i class="fas fa-chevron-down"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="residential-cleaning.html">Residential Cleaning</a></li>
-                            <li><a href="commercial-cleaning.html">Commercial Cleaning</a></li>
-                            <li><a href="deep-clean.html">Deep Cleaning</a></li>
-                            <li><a href="move-in-move-out-cleaning.html">Move-in/Move-out Cleaning</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#process">Process</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
+<!-- Testimonials Section -->
+<section id="testimonials" class="testimonials">
+    <h2 class="section-title fade-in">What Our Clients Say</h2>
+    <div class="testimonials-grid">
+        <div class="testimonial-card fade-in">
+            <p>"The attention to detail is amazing. They transformed my home!"</p>
+            <p>- Sarah Johnson</p>
+            <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
             </div>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content fade-in">
-            <h1>Professional Cleaning Services</h1>
-            <p>Experience the difference with our premium cleaning solutions</p>
-            <button class="cta-button" onclick="window.open('https://modernmaid.io/iframes/bookings/5b828705ee8b438220ecd3adae7b5151', '_blank')">Book Now</button>
-            <button class="cta-button" onclick="window.location.href='#contact'">Get Quote</button>
+        <div class="testimonial-card fade-in">
+            <p>"Professional, reliable, and thorough. Best cleaning service in Sioux Falls!"</p>
+            <p>- Michael Smith</p>
+            <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
         </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <div class="services-grid">
-            <!-- Service cards here -->
+        <div class="testimonial-card fade-in">
+            <p>"Consistently excellent service. I highly recommend them!"</p>
+            <p>- Emily Davis</p>
+            <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Process Section -->
-    <section id="process" class="process">
-        <div class="process-grid">
-            <!-- Process items here -->
+<!-- Contact Section -->
+<section id="contact" class="contact">
+    <h2 class="section-title fade-in">Contact Us</h2>
+    <form class="contact-form fade-in" action="https://formspree.io/f/xyzkrrnr" method="POST">
+        <div class="form-group">
+            <input type="text" name="name" placeholder="Your Name" required>
         </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials">
-        <div class="testimonials-grid">
-            <!-- Testimonial cards here -->
+        <div class="form-group">
+            <input type="email" name="email" placeholder="Your Email" required>
         </div>
-    </section>
+        <div class="form-group">
+            <input type="tel" name="phone" placeholder="Your Phone" required>
+        </div>
+        <div class="form-group">
+            <select name="service" required>
+                <option value="">Select Service</option>
+                <option value="residential">Residential Cleaning</option>
+                <option value="commercial">Commercial Cleaning</option>
+                <option value="deep">Deep Cleaning</option>
+                <option value="movein">Move In/Out Cleaning</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        </div>
+        <button type="submit" class="cta-button">Send Message</button>
+    </form>
+</section>
+/* Enhanced Desktop Styles */
+@media (min-width: 1024px) {
+    .service-card ul {
+        text-align: left;
+        margin-top: 20px;
+        padding-left: 20px;
+    }
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <form class="contact-form" action="https://formspree.io/f/xyzkrrnr" method="POST">
-            <!-- Form fields here -->
-        </form>
-    </section>
+    .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    }
 
-    <!-- Back to Top Button -->
-    <a href="#" class="back-to-top">
-        <i class="fas fa-arrow-up"></i>
-    </a>
+    .process-item:hover img {
+        transform: scale(1.05);
+        transition: transform 0.3s ease;
+    }
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 Sioux Clean Solutions. All rights reserved.</p>
-    </footer>
+    .testimonial-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-    <script>
-        // Mobile Menu Toggle
-        const menuBtn = document.querySelector('.menu-btn');
-        const navLinks = document.querySelector('.nav-links');
+    .testimonial-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    }
 
-        menuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
+    .rating {
+        color: var(--secondary);
+        margin-top: 15px;
+    }
 
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!e.target.closest('.nav-container')) {
-                navLinks.classList.remove('active');
-            }
-        });
-
-        // Scroll Animation
-        const fadeElements = document.querySelectorAll('.fade-in');
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        fadeElements.forEach(element => observer.observe(element));
-
-        // Back to Top Button
-        const backToTop = document.querySelector('.back-to-top');
-        
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTop.classList.add('active');
-            } else {
-                backToTop.classList.remove('active');
-            }
-        });
-
-        // Form Submission
-        const form = document.querySelector('.contact-form');
-        
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            try {
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    body: new FormData(form),
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-
-                if (response.ok) {
-                    form.reset();
-                    alert('Thank you for your message. We will get back to you soon!');
-                } else {
-                    throw new Error('Form submission failed');
-                }
-            } catch (error) {
-                alert('There was a problem submitting your form. Please try again.');
-            }
-        });
-    </script>
-</body>
-</html>
-        
+    select {
+        width: 100%;
+        padding: 15px;
+        border: none;
+        border-radius: var(--border-radius);
+        font-size: 16px;
+        appearance: none;
+        background: var(--white) url("data:image/svg+xml,...") no-repeat right 15px center;
+        background-size: 12px;
+    }
+}

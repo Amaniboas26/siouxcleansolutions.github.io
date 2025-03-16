@@ -1,277 +1,594 @@
-/* Desktop-specific styles */
-@media (min-width: 1024px) {
-    .nav-container {
-        max-width: 1400px;
-        padding: 0 50px;
-    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sioux Clean Solutions</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://modernmaid.io/iframe-sdk/modernmaid-iframe-sdk.js?version=0.1"></script>
+    <script>
+        window.ModernmaidIframeSdk.setup("5b828705ee8b438220ecd3adae7b5151");
+    </script>
 
-    .nav-logo img {
-        height: 60px;
-    }
+    <style>
+        :root {
+            --primary: #0078D4;
+            --secondary: #FFA500;
+            --dark: #333;
+            --light: #F8F9FA;
+            --white: #FFFFFF;
+        }
 
-    .nav-links {
-        gap: 3rem;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    .hero-content {
-        max-width: 1000px;
-    }
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+        }
 
-    .hero h1 {
-        font-size: 4rem;
-    }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-    .hero p {
-        font-size: 1.5rem;
-    }
+        /* Navigation */
+        nav {
+            background: rgba(0, 0, 0, 0.9);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 15px 0;
+        }
 
-    .cta-button {
-        padding: 20px 40px;
-        font-size: 1.2rem;
-        margin: 0 15px;
-    }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    /* Services Grid for larger screens */
-    .services-grid {
-        grid-template-columns: repeat(3, 1fr);
-        max-width: 1400px;
-        gap: 40px;
-        padding: 0 50px;
-    }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            color: var(--white);
+        }
 
-    .service-card {
-        padding: 40px;
-    }
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
 
-    /* Process section for larger screens */
-    .process-grid {
-        grid-template-columns: repeat(3, 1fr);
-        max-width: 1400px;
-        gap: 60px;
-        padding: 0 50px;
-    }
+        .logo span {
+            font-size: 24px;
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+        }
 
-    .process-item img {
-        width: 250px;
-        height: 250px;
-    }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
 
-    /* Testimonials for larger screens */
-    .testimonials-grid {
-        grid-template-columns: repeat(3, 1fr);
-        max-width: 1400px;
-        gap: 40px;
-        padding: 0 50px;
-    }
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
 
-    .testimonial-card {
-        padding: 40px;
-    }
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
 
-    /* Contact form for larger screens */
-    .contact-form {
-        max-width: 800px;
-        padding: 0;
-    }
-}
+        .phone-number {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: var(--secondary);
+            border-radius: 25px;
+        }
 
-/* Large Desktop styles */
-@media (min-width: 1440px) {
-    .nav-container,
-    .services-grid,
-    .process-grid,
-    .testimonials-grid {
-        max-width: 1600px;
-    }
+        .phone-number:hover {
+            background: #ff9100;
+            color: var(--white) !important;
+        }
 
-    .hero-content {
-        max-width: 1200px;
-    }
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                        url('https://images.unsplash.com/photo-1581578731548-c64695cc6952') center/cover;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding-top: 80px;
+        }
 
-    .hero h1 {
-        font-size: 4.5rem;
-    }
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-    .contact-form {
-        max-width: 1000px;
-    }
-}
-<!-- Services Section -->
-<section id="services" class="services">
-    <h2 class="section-title fade-in">Our Professional Services</h2>
-    <div class="services-grid">
-        <div class="service-card fade-in">
-            <div class="service-icon">
-                <i class="fas fa-home"></i>
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .button-primary {
+            background: var(--secondary);
+            color: var(--white);
+        }
+
+        .button-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+                /* Services Section */
+        .services {
+            padding: 100px 0;
+            background: var(--light);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: var(--primary);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .service-card p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .service-card ul {
+            list-style: none;
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .service-card ul li {
+            padding: 8px 0;
+            color: #555;
+            display: flex;
+            align-items: center;
+        }
+
+        .service-card ul li:before {
+            content: "\f00c";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            margin-right: 10px;
+            color: var(--primary);
+        }
+
+        /* Process Section */
+        .process {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .process-item {
+            text-align: center;
+            position: relative;
+        }
+
+        .process-item img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+
+        .process-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .process-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .process-item p {
+            color: #666;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+            background: var(--light);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .rating {
+            color: var(--secondary);
+            margin-top: 15px;
+        }
+
+        /* Contact Form */
+        .contact {
+            padding: 100px 0;
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .contact .section-title {
+            color: var(--white);
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            background: var(--white);
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .services-grid,
+            .process-grid,
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .services-grid,
+            .process-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+        }
+            </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <img src="Secondary.png" alt="Sioux Clean Solutions Logo">
+                <span>Sioux Clean Solutions</span>
+            </a>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#process">Process</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#contact">Contact</a>
+                <a href="tel:6054128105" class="phone-number">
+                    <i class="fas fa-phone"></i>
+                    (605) 412-8105
+                </a>
             </div>
-            <h3>Residential Cleaning</h3>
-            <p>Comprehensive home cleaning services tailored to your needs.</p>
-            <ul>
-                <li>Regular House Cleaning</li>
-                <li>Deep Cleaning Services</li>
-                <li>Move In/Out Cleaning</li>
-                <li>Spring Cleaning</li>
-            </ul>
+            <button class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
-        <div class="service-card fade-in">
-            <div class="service-icon">
-                <i class="fas fa-building"></i>
-            </div>
-            <h3>Commercial Cleaning</h3>
-            <p>Professional cleaning solutions for businesses.</p>
-            <ul>
-                <li>Office Cleaning</li>
-                <li>Retail Space Cleaning</li>
-                <li>Medical Facility Cleaning</li>
-                <li>Industrial Cleaning</li>
-            </ul>
-        </div>
-        <div class="service-card fade-in">
-            <div class="service-icon">
-                <i class="fas fa-star"></i>
-            </div>
-            <h3>Specialty Services</h3>
-            <p>Additional cleaning services for specific needs.</p>
-            <ul>
-                <li>Window Cleaning</li>
-                <li>Carpet Cleaning</li>
-                <li>Post-Construction Cleanup</li>
-                <li>Event Cleanup</li>
-            </ul>
-        </div>
-    </div>
-</section>
+    </nav>
 
-<!-- Process Section -->
-<section id="process" class="process">
-    <h2 class="section-title fade-in">Our Cleaning Process</h2>
-    <div class="process-grid">
-        <div class="process-item fade-in">
-            <img src="https://images.unsplash.com/photo-1628177142898-93e36e4e3a50" alt="Initial Assessment">
-            <h3>1. Assessment</h3>
-            <p>We evaluate your space and create a customized cleaning plan.</p>
-        </div>
-        <div class="process-item fade-in">
-            <img src="https://images.unsplash.com/photo-1603712725038-e9334ae8f39f" alt="Professional Cleaning">
-            <h3>2. Professional Cleaning</h3>
-            <p>Our trained team executes the cleaning plan with precision.</p>
-        </div>
-        <div class="process-item fade-in">
-            <img src="https://images.unsplash.com/photo-1582769923195-c6e60dc1d8dc" alt="Quality Check">
-            <h3>3. Quality Assurance</h3>
-            <p>Final inspection to ensure everything meets our high standards.</p>
-        </div>
-    </div>
-</section>
-
-<!-- Testimonials Section -->
-<section id="testimonials" class="testimonials">
-    <h2 class="section-title fade-in">What Our Clients Say</h2>
-    <div class="testimonials-grid">
-        <div class="testimonial-card fade-in">
-            <p>"The attention to detail is amazing. They transformed my home!"</p>
-            <p>- Sarah Johnson</p>
-            <div class="rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Professional Cleaning Services</h1>
+            <p>Experience the difference with our premium cleaning solutions</p>
+            <div class="cta-buttons">
+                <button class="button button-primary" onclick="window.open('https://modernmaid.io/iframes/bookings/5b828705ee8b438220ecd3adae7b5151', '_blank')">
+                    Book Now
+                </button>
+                <button class="button button-secondary" onclick="location.href='#contact'">
+                    Get Quote
+                </button>
             </div>
         </div>
-        <div class="testimonial-card fade-in">
-            <p>"Professional, reliable, and thorough. Best cleaning service in Sioux Falls!"</p>
-            <p>- Michael Smith</p>
-            <div class="rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Residential Cleaning</h3>
+                    <p>Comprehensive home cleaning services tailored to your needs</p>
+                    <ul>
+                        <li>Regular Maintenance</li>
+                        <li>Deep Cleaning</li>
+                        <li>Move In/Out Cleaning</li>
+                        <li>Spring Cleaning</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Commercial Cleaning</h3>
+                    <p>Professional cleaning solutions for businesses</p>
+                    <ul>
+                        <li>Office Cleaning</li>
+                        <li>Retail Spaces</li>
+                        <li>Medical Facilities</li>
+                        <li>Industrial Cleaning</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Specialty Services</h3>
+                    <p>Additional services for specific cleaning needs</p>
+                    <ul>
+                        <li>Window Cleaning</li>
+                        <li>Carpet Cleaning</li>
+                        <li>Post-Construction</li>
+                        <li>Event Cleanup</li>
+                    </ul>
+                </div>
             </div>
         </div>
-        <div class="testimonial-card fade-in">
-            <p>"Consistently excellent service. I highly recommend them!"</p>
-            <p>- Emily Davis</p>
-            <div class="rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="process">
+        <div class="container">
+            <h2 class="section-title">Our Process</h2>
+            <div class="process-grid">
+                <div class="process-item">
+                    <img src="https://images.unsplash.com/photo-1628177142898-93e36e4e3a50" alt="Assessment">
+                    <h3>1. Assessment</h3>
+                    <p>Thorough evaluation of your cleaning needs</p>
+                </div>
+                <div class="process-item">
+                    <img src="https://images.unsplash.com/photo-1603712725038-e9334ae8f39f" alt="Cleaning">
+                    <h3>2. Cleaning</h3>
+                    <p>Professional cleaning with attention to detail</p>
+                </div>
+                <div class="process-item">
+                    <img src="https://images.unsplash.com/photo-1582769923195-c6e60dc1d8dc" alt="Quality Check">
+                    <h3>3. Quality Check</h3>
+                    <p>Final inspection to ensure satisfaction</p>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Contact Section -->
-<section id="contact" class="contact">
-    <h2 class="section-title fade-in">Contact Us</h2>
-    <form class="contact-form fade-in" action="https://formspree.io/f/xyzkrrnr" method="POST">
-        <div class="form-group">
-            <input type="text" name="name" placeholder="Your Name" required>
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <form class="contact-form" action="https://formspree.io/f/xyzkrrnr" method="POST">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" name="phone" placeholder="Your Phone" required>
+                </div>
+                <div class="form-group">
+                    <select name="service" required>
+                        <option value="">Select Service</option>
+                        <option value="residential">Residential Cleaning</option>
+                        <option value="commercial">Commercial Cleaning</option>
+                        <option value="specialty">Specialty Services</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="button button-primary">Send Message</button>
+            </form>
         </div>
-        <div class="form-group">
-            <input type="email" name="email" placeholder="Your Email" required>
-        </div>
-        <div class="form-group">
-            <input type="tel" name="phone" placeholder="Your Phone" required>
-        </div>
-        <div class="form-group">
-            <select name="service" required>
-                <option value="">Select Service</option>
-                <option value="residential">Residential Cleaning</option>
-                <option value="commercial">Commercial Cleaning</option>
-                <option value="deep">Deep Cleaning</option>
-                <option value="movein">Move In/Out Cleaning</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-        </div>
-        <button type="submit" class="cta-button">Send Message</button>
-    </form>
-</section>
-/* Enhanced Desktop Styles */
-@media (min-width: 1024px) {
-    .service-card ul {
-        text-align: left;
-        margin-top: 20px;
-        padding-left: 20px;
-    }
+    </section>
 
-    .service-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 8px 30px rgba(0,0,0,0.15);
-    }
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
 
-    .process-item:hover img {
-        transform: scale(1.05);
-        transition: transform 0.3s ease;
-    }
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
 
-    .testimonial-card {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
 
-    .testimonial-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 30px rgba(0,0,0,0.15);
-    }
+        // Form Submission
+        const form = document.querySelector('.contact-form');
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                if (response.ok) {
+                    form.reset();
+                    alert('Thank you for your message. We will contact you soon!');
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            } catch (error) {
+                alert('There was a problem submitting your form. Please try again.');
+            }
+        });
 
-    .rating {
-        color: var(--secondary);
-        margin-top: 15px;
-    }
-
-    select {
-        width: 100%;
-        padding: 15px;
-        border: none;
-        border-radius: var(--border-radius);
-        font-size: 16px;
-        appearance: none;
-        background: var(--white) url("data:image/svg+xml,...") no-repeat right 15px center;
-        background-size: 12px;
-    }
-}
+        // Scroll Animation
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.background = 'rgba(0, 0, 0, 0.95)';
+            } else {
+                nav.style.background = 'rgba(0, 0, 0, 0.9)';
+            }
+        });
+    </script>
+</body>
+</html>
+        

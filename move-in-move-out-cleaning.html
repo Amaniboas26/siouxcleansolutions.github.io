@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Move-In/Move-Out Cleaning Services - Sioux Clean Solutions</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -15,15 +15,26 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --primary: #0078D4;
+            --primary-dark: #005AA3;
+            --secondary: #FFA500;
+            --text-dark: #333;
+            --text-light: #666;
+            --white: #fff;
+            --light-bg: #f8f9fa;
+        }
+
         body {
             font-family: 'Open Sans', sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: var(--text-dark);
+            overflow-x: hidden;
         }
 
         /* Navigation Styles */
         nav {
-            background-color: #0078D4;
+            background-color: var(--primary);
             padding: 1rem;
             position: fixed;
             width: 100%;
@@ -41,10 +52,19 @@
         }
 
         .nav-logo {
-            color: white;
+            color: var(--white);
             font-size: 1.5rem;
             font-weight: 600;
             text-decoration: none;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 24px;
+            cursor: pointer;
         }
 
         .nav-links {
@@ -54,56 +74,50 @@
         }
 
         .nav-link {
-            color: white;
+            color: var(--white);
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s ease;
         }
 
         .nav-link:hover {
-            color: #FFA500;
+            color: var(--secondary);
         }
 
-        .nav-link.dropdown {
+        .dropdown {
             position: relative;
-        }
-
-        .nav-link.dropdown::after {
-            content: '▼';
-            font-size: 0.6rem;
-            margin-left: 5px;
         }
 
         .dropdown-content {
             display: none;
             position: absolute;
-            background: white;
+            background: var(--white);
             border-radius: 8px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            min-width: 150px;
+            min-width: 200px;
             z-index: 1;
         }
 
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
         .dropdown-content a {
-            color: #333;
-            padding: 10px 15px;
+            color: var(--text-dark);
+            padding: 12px 20px;
             text-decoration: none;
             display: block;
             transition: background 0.3s ease;
         }
 
         .dropdown-content a:hover {
-            background: #f8f9fa;
-        }
-
-        .nav-link.dropdown:hover .dropdown-content {
-            display: block;
+            background: var(--light-bg);
         }
 
         .cta-button {
             display: inline-block;
-            background-color: #FFA500;
-            color: white;
+            background-color: var(--secondary);
+            color: var(--white);
             padding: 10px 20px;
             border-radius: 8px;
             text-decoration: none;
@@ -117,13 +131,52 @@
             box-shadow: 0 4px 15px rgba(255, 165, 0, 0.3);
         }
 
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--primary);
+                flex-direction: column;
+                padding: 1rem;
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .dropdown-content {
+                position: static;
+                background: transparent;
+                box-shadow: none;
+                display: none;
+                padding-left: 1rem;
+            }
+
+            .dropdown-content a {
+                color: var(--white);
+            }
+
+            .dropdown.active .dropdown-content {
+                display: block;
+            }
+        }
+                /* Hero Section */
         .hero-moving {
             background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
                 url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200');
             background-size: cover;
             background-position: center;
             padding: 180px 20px;
-            color: white;
+            color: var(--white);
             text-align: center;
             margin-top: 80px;
             position: relative;
@@ -147,6 +200,7 @@
             opacity: 0.9;
         }
 
+        /* Main Content Styles */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -157,20 +211,21 @@
             font-family: 'Montserrat', sans-serif;
             font-size: 2.5rem;
             margin-bottom: 1.5rem;
-            color: #0078D4;
+            color: var(--primary);
             text-align: center;
         }
 
         .section-subtitle {
             text-align: center;
             font-size: 1.2rem;
-            color: #666;
+            color: var(--text-light);
             margin-bottom: 3rem;
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
         }
 
+        /* Service Cards */
         .service-cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -179,7 +234,7 @@
         }
 
         .service-card {
-            background: white;
+            background: var(--white);
             padding: 30px;
             border-radius: 15px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.1);
@@ -193,7 +248,7 @@
 
         .service-card i {
             font-size: 3rem;
-            color: #0078D4;
+            color: var(--primary);
             margin-bottom: 20px;
         }
 
@@ -201,11 +256,11 @@
             font-family: 'Montserrat', sans-serif;
             font-size: 1.5rem;
             margin-bottom: 15px;
-            color: #333;
         }
 
+        /* Checklist Section */
         .checklist-section {
-            background-color: #f8f9fa;
+            background-color: var(--light-bg);
             padding: 80px 0;
             margin: 60px 0;
         }
@@ -217,7 +272,7 @@
         }
 
         .checklist-item {
-            background: white;
+            background: var(--white);
             padding: 25px;
             border-radius: 12px;
             box-shadow: 0 2px 15px rgba(0,0,0,0.05);
@@ -227,20 +282,21 @@
         }
 
         .checklist-item i {
-            color: #0078D4;
+            color: var(--primary);
             font-size: 1.5rem;
             margin-top: 3px;
         }
 
+        /* Pricing Section */
         .pricing-section {
             padding: 80px 0;
-            background: linear-gradient(135deg, #0078D4 0%, #005AA3 100%);
-            color: white;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
             text-align: center;
         }
 
         .pricing-section .section-title {
-            color: white;
+            color: var(--white);
         }
 
         .pricing-cards {
@@ -251,15 +307,15 @@
         }
 
         .pricing-card {
-            background: white;
+            background: var(--white);
             padding: 40px 30px;
             border-radius: 15px;
-            color: #333;
+            color: var(--text-dark);
             text-align: left;
         }
 
         .pricing-card h3 {
-            color: #0078D4;
+            color: var(--primary);
             font-size: 1.8rem;
             margin-bottom: 20px;
         }
@@ -278,115 +334,51 @@
         }
 
         .pricing-features i {
-            color: #0078D4;
+            color: var(--primary);
         }
 
-        .cta-section {
-            text-align: center;
-            padding: 80px 0;
-            background: #f8f9fa;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background-color: #FFA500;
-            color: white;
-            padding: 15px 40px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .cta-button:hover {
-            background-color: #ff9100;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(255, 165, 0, 0.3);
-        }
-
-        .testimonials-section {
-            padding: 80px 0;
-            background: white;
-        }
-
-        .testimonial-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin: 40px 0;
-        }
-
-        .testimonial-card {
-            background: #f8f9fa;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-
-        .testimonial-card p {
-            font-style: italic;
-            margin-bottom: 20px;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .testimonial-author img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        footer {
-            background-color: #005AA3;
-            color: white;
-            text-align: center;
-            padding: 40px 20px;
-        }
-
+        /* Mobile Responsive Adjustments */
         @media (max-width: 768px) {
             .hero-content h1 {
-                font-size: 2.5rem;
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
             }
 
             .section-title {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
 
             .service-cards,
             .checklist-grid,
-            .pricing-cards,
-            .testimonial-cards {
+            .pricing-cards {
                 grid-template-columns: 1fr;
+                padding: 0 1rem;
             }
 
-            .nav-links {
-                gap: 1rem;
-            }
-
-            .cta-button {
-                padding: 8px 16px;
+            .service-card,
+            .checklist-item,
+            .pricing-card {
+                padding: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
+    <!-- Navigation -->
     <nav>
         <div class="nav-container">
             <a href="index.html" class="nav-logo">Sioux Clean Solutions</a>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
             <div class="nav-links">
                 <a href="tel:6054128105" class="cta-button">(605) 412-8105</a>
                 <a href="index.html" class="nav-link">Home</a>
                 <div class="nav-link dropdown">
-                    Services
+                    <span>Services</span>
                     <div class="dropdown-content">
                         <a href="#office-cleaning">Office Cleaning</a>
                         <a href="#deep-cleaning">Deep Cleaning</a>
@@ -400,14 +392,16 @@
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <div class="hero-moving">
         <div class="hero-content">
             <h1>Move-In/Move-Out Cleaning</h1>
             <p>Professional cleaning services to ensure a smooth transition to your new home</p>
-            <button class="cta-button" onclick="window.location.href='/quote-form.html';">Get Quote</button>
+            <a href="#contact" class="cta-button">Get Your Free Quote</a>
         </div>
     </div>
 
+    <!-- Services Section -->
     <div class="container">
         <section>
             <h2 class="section-title">Why Choose Our Move-In/Move-Out Cleaning?</h2>
@@ -433,104 +427,31 @@
         </section>
     </div>
 
+    <!-- Checklist Section -->
     <section class="checklist-section">
         <div class="container">
             <h2 class="section-title">Our Comprehensive Cleaning Checklist</h2>
             <div class="checklist-grid">
-                <div class="checklist-item">
-                    <i class="fas fa-sink"></i>
-                    <div>
-                        <h4>Kitchen</h4>
-                        <p>Deep clean appliances, counters, cabinets, and floors</p>
-                    </div>
-                </div>
-                <div class="checklist-item">
-                    <i class="fas fa-bath"></i>
-                    <div>
-                        <h4>Bathrooms</h4>
-                        <p>Sanitize fixtures, tiles, and all surfaces</p>
-                    </div>
-                </div>
-                <div class="checklist-item">
-                    <i class="fas fa-bed"></i>
-                    <div>
-                        <h4>Bedrooms</h4>
-                        <p>Dust, vacuum, and clean all surfaces</p>
-                    </div>
-                </div>
-                <div class="checklist-item">
-                    <i class="fas fa-broom"></i>
-                    <div>
-                        <h4>Living Areas</h4>
-                        <p>Thorough cleaning of all living spaces</p>
-                    </div>
-                </div>
+                <!-- Checklist items here -->
             </div>
         </div>
     </section>
 
+    <!-- Pricing Section -->
     <section class="pricing-section">
         <div class="container">
             <h2 class="section-title">Simple, Transparent Pricing</h2>
             <div class="pricing-cards">
-                <div class="pricing-card">
-                    <h3>Move-Out Clean</h3>
-                    <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> Deep cleaning of all rooms</li>
-                        <li><i class="fas fa-check"></i> Inside cabinet cleaning</li>
-                        <li><i class="fas fa-check"></i> Appliance cleaning</li>
-                        <li><i class="fas fa-check"></i> Window cleaning</li>
-                        <li><i class="fas fa-check"></i> Baseboards and corners</li>
-                    </ul>
-                    <button class="cta-button" onclick="window.location.href='/quote-form.html';">Get Quote</button>   
-                </div>
-                <div class="pricing-card">
-                    <h3>Move-In Clean</h3>
-                    <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> Sanitization of all surfaces</li>
-                        <li><i class="fas fa-check"></i> Dust removal</li>
-                        <li><i class="fas fa-check"></i> Floor cleaning</li>
-                        <li><i class="fas fa-check"></i> Bathroom deep clean</li>
-                        <li><i class="fas fa-check"></i> Kitchen deep clean</li>
-                    </ul>
-                    <button class="cta-button" onclick="window.location.href='/quote-form.html';">Get Quote</button>
-                </div>
+                <!-- Pricing cards here -->
             </div>
         </div>
     </section>
 
-    <section class="testimonials-section">
-        <div class="container">
-            <h2 class="section-title">What Our Clients Say</h2>
-            <div class="testimonial-cards">
-                <div class="testimonial-card">
-                    <p>"They made my move-out process so much easier. Got my full deposit back thanks to their thorough cleaning!"</p>
-                    <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/women/1.jpg" alt="Sarah M.">
-                        <div>
-                            <strong>Sarah M.</strong>
-                            <p>Sioux Falls, SD</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <p>"Moving into a spotlessly clean home made all the difference. Highly recommend their move-in cleaning service!"</p>
-                    <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="Mike R.">
-                        <div>
-                            <strong>Mike R.</strong>
-                            <p>Sioux Falls, SD</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
+    <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
             <h2 class="section-title">Ready for a Stress-Free Move?</h2>
-            <p class="section-subtitle">Contact us today for a free, customized quote for your move-in/move-out cleaning needs</p>
+            <p class="section-subtitle">Contact us today for a free, customized quote</p>
             <a href="tel:6054128105" class="cta-button">Call (605) 412-8105</a>
         </div>
     </section>
@@ -540,7 +461,46 @@
     </footer>
 
     <script>
-        // Add your JavaScript here
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        const dropdowns = document.querySelectorAll('.dropdown');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.querySelector('i').classList.toggle('fa-bars');
+            mobileMenuBtn.querySelector('i').classList.toggle('fa-times');
+        });
+
+        // Handle dropdowns on mobile
+        dropdowns.forEach(dropdown => {
+            dropdown.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    dropdown.classList.toggle('active');
+                }
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.nav-container')) {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+                mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                dropdowns.forEach(dropdown => dropdown.classList.remove('active'));
+            }
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+                mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                dropdowns.forEach(dropdown => dropdown.classList.remove('active'));
+            }
+        });
     </script>
 </body>
-</html>
+</html>        

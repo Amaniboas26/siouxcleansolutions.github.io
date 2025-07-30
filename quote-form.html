@@ -114,100 +114,6 @@
             background-color: #218838;
         }
 
-        /* Modal Styles */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.5);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .modal-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .modal-container {
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-            width: 90%;
-            max-width: 400px;
-            padding: 25px;
-            transform: translateY(20px);
-            transition: transform 0.3s ease;
-        }
-
-        .modal-overlay.active .modal-container {
-            transform: translateY(0);
-        }
-
-        .modal-header {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .modal-header h3 {
-            color: #333;
-            margin: 0;
-            font-size: 22px;
-        }
-
-        .modal-body {
-            text-align: center;
-            margin-bottom: 25px;
-        }
-
-        .price-display {
-            font-size: 28px;
-            font-weight: bold;
-            color: #28a745;
-            margin: 15px 0;
-        }
-
-        .modal-footer {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .modal-btn {
-            padding: 10px 20px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s;
-            border: none;
-        }
-
-        .modal-btn-confirm {
-            background-color: #28a745;
-            color: white;
-        }
-
-        .modal-btn-confirm:hover {
-            background-color: #218838;
-        }
-
-        .modal-btn-cancel {
-            background-color: #f8f9fa;
-            color: #333;
-            border: 1px solid #ddd;
-        }
-
-        .modal-btn-cancel:hover {
-            background-color: #e2e6ea;
-        }
-
         /* Mobile Responsive Adjustments */
         @media (max-width: 480px) {
             #quote-section {
@@ -237,19 +143,6 @@
             .form-group input[type="number"] {
                 width: 100%;
                 margin-bottom: 10px;
-            }
-
-            .modal-container {
-                padding: 20px;
-            }
-
-            .modal-footer {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .modal-btn {
-                width: 100%;
             }
         }
 
@@ -338,83 +231,12 @@
         </form>
     </section>
 
-    <!-- Modal for price confirmation -->
-    <div class="modal-overlay" id="priceModal">
-        <div class="modal-container">
-            <div class="modal-header">
-                <h3>Estimated Cleaning Cost</h3>
-            </div>
-            <div class="modal-body">
-                <p>Here's your estimated total:</p>
-                <div class="price-display" id="estimatedPrice">$0.00</div>
-                <p>Would you like to proceed with submitting your request?</p>
-            </div>
-            <div class="modal-footer">
-                <button class="modal-btn modal-btn-cancel" id="cancelBtn">Cancel</button>
-                <button class="modal-btn modal-btn-confirm" id="confirmBtn">Submit Request</button>
-            </div>
-        </div>
-    </div>
-
     <!-- JavaScript -->
     <script>
         document.getElementById('quote-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            // Get form values
-            const bedrooms = parseInt(document.getElementById('bedrooms').value) || 0;
-            const bathrooms = parseInt(document.getElementById('bathrooms').value) || 0;
-            const kitchens = parseInt(document.getElementById('kitchens').value) || 0;
-            const livingRooms = parseInt(document.getElementById('living-rooms').value) || 0;
-            const frequency = document.getElementById('frequency').value;
-
-            // Pricing
-            const basePrice = 150;
-            const prices = {
-                bedroom: 20,
-                bathroom: 15,
-                kitchen: 30,
-                livingRoom: 20
-            };
-
-            const recurring = {
-                "One Time": 95,
-                "Every Week": 129.5,
-                "Every 2 Weeks": 242.25,
-                "Every 4 Weeks": 157.25
-            };
-
-            // Calculate total
-            let total = basePrice +
-                        (bedrooms * prices.bedroom) +
-                        (bathrooms * prices.bathroom) +
-                        (kitchens * prices.kitchen) +
-                        (livingRooms * prices.livingRoom);
-
-            total += recurring[frequency] || 0;
-
-            // Add tax (6%)
-            const taxRate = 0.06;
-            total = total + (total * taxRate);
-            total = total.toFixed(2);
-
-            // Show modal
-            const modal = document.getElementById('priceModal');
-            document.getElementById('estimatedPrice').textContent = `$${total}`;
-            modal.classList.add('active');
-
-            // Store form reference
-            const form = event.target;
-
-            // Setup modal buttons
-            document.getElementById('confirmBtn').onclick = function() {
-                modal.classList.remove('active');
-                form.submit();
-            };
-
-            document.getElementById('cancelBtn').onclick = function() {
-                modal.classList.remove('active');
-            };
+            // The form will submit directly to the action URL
+            // without showing any price calculation
+            return true;
         });
     </script>
 </body>

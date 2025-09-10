@@ -41,24 +41,30 @@
     <!-- Navigation -->
     <nav class="fixed w-full bg-gray-900 text-white shadow-lg z-50">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- Logo -->
             <a href="index.html" class="flex items-center space-x-2">
                 <img src="Secondary.png" alt="Sioux Clean Solutions Logo" class="h-12">
                 <span class="font-montserrat font-bold text-xl hidden sm:inline">Sioux Clean Solutions</span>
             </a>
             
+            <!-- Desktop Menu -->
             <div class="hidden lg:flex items-center space-x-8">
-    <a href="#home" class="hover:text-blue-400 transition-colors">Home</a>
-    <div class="group relative">
-        <button class="hover:text-blue-400 transition-colors flex items-center">
-            Services <i class="fas fa-chevron-down ml-1 text-xs"></i>
-        </button>
-    </div>
-</div>
-                    <div class="absolute left-0 mt-2 w-56 bg-white text-gray-800 rounded-md shadow-lg py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                <a href="#home" class="hover:text-blue-400 transition-colors">Home</a>
+
+                <!-- Services Dropdown -->
+                <div class="group relative">
+                    <button class="hover:text-blue-400 transition-colors flex items-center">
+                        Services <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <!-- Dropdown Menu (inside group for hover to work) -->
+                    <div class="absolute left-0 mt-2 w-56 bg-white text-gray-800 rounded-md shadow-lg py-2 
+                                opacity-0 invisible group-hover:opacity-100 group-hover:visible 
+                                transition-all duration-300 z-50">
                         <a href="residential-cleaning.html" class="block px-4 py-2 hover:bg-blue-50">Residential Cleaning</a>
                         <a href="commercial-cleaning.html" class="block px-4 py-2 hover:bg-blue-50">Commercial Cleaning</a>
                     </div>
                 </div>
+
                 <a href="#process" class="hover:text-blue-400 transition-colors">Process</a>
                 <a href="#testimonials" class="hover:text-blue-400 transition-colors">Testimonials</a>
                 <a href="#contact" class="hover:text-blue-400 transition-colors">Contact</a>
@@ -67,11 +73,12 @@
                 </a>
             </div>
             
+            <!-- Mobile Menu Button -->
             <button class="lg:hidden text-white focus:outline-none" id="mobile-menu-button">
                 <i class="fas fa-bars text-2xl"></i>
             </button>
         </div>
-        
+    </nav>       
         <!-- Mobile menu -->
         <div class="lg:hidden hidden bg-gray-800" id="mobile-menu">
             <div class="px-4 py-3 space-y-3">
@@ -655,6 +662,7 @@
     </script>
 </body>
 </html>
+
 
 
 

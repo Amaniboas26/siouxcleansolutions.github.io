@@ -12,7 +12,7 @@
                 extend: {
                     colors: {
                         primary: '#3b82f6',
-                        secondary: '#10b981',
+                        secondary: '#6366f1',  // Changed from green to indigo
                         dark: '#1e293b',
                         light: '#f8fafc'
                     }
@@ -105,7 +105,7 @@
         }
     </style>
 </head>
-<body class="bg-gradient-to-br from-blue-50 to-green-50 min-h-screen p-4 pb-24">
+<body class="bg-gradient-to-br from-blue-50 to-indigo-50 min-h-screen p-4 pb-24"> <!-- Changed green to indigo -->
     <!-- Header with navigation -->
     <header class="max-w-7xl mx-auto mb-8">
         <nav class="bg-dark rounded-lg shadow-lg p-4">
@@ -274,7 +274,7 @@
                     <!-- Trust indicators -->
                     <div class="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm text-gray-500 mt-6">
                         <div class="flex items-center">
-                            <i class="fas fa-shield-alt text-green-500 mr-2"></i>
+                            <i class="fas fa-shield-alt text-blue-500 mr-2"></i> <!-- Changed from green to blue -->
                             <span>100% Satisfaction Guarantee</span>
                         </div>
                         <div class="flex items-center">
@@ -304,15 +304,7 @@
                     </div>
                 </div>
                 
-                <div class="flex items-start">
-                    <div class="bg-green-100 p-3 rounded-full mr-4">
-                        <i class="fas fa-leaf text-secondary text-lg"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-semibold text-gray-800">Eco-Friendly Products</h3>
-                        <p class="text-gray-600 text-sm mt-1">We use environmentally safe cleaning solutions.</p>
-                    </div>
-                </div>
+                <!-- Removed the eco-friendly products benefit card -->
                 
                 <div class="flex items-start">
                     <div class="bg-purple-100 p-3 rounded-full mr-4">
@@ -331,6 +323,17 @@
                     <div>
                         <h3 class="font-semibold text-gray-800">Satisfaction Guaranteed</h3>
                         <p class="text-gray-600 text-sm mt-1">Not happy? We'll re-clean at no additional cost.</p>
+                    </div>
+                </div>
+
+                <!-- Added new benefit to replace the eco-friendly one -->
+                <div class="flex items-start">
+                    <div class="bg-red-100 p-3 rounded-full mr-4">
+                        <i class="fas fa-tachometer-alt text-red-500 text-lg"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-gray-800">Quick Service</h3>
+                        <p class="text-gray-600 text-sm mt-1">We provide fast and efficient cleaning solutions.</p>
                     </div>
                 </div>
             </div>
@@ -524,6 +527,3 @@
     </script>
 </body>
 </html>
-
-
-

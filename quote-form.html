@@ -115,6 +115,29 @@
                     <i class="fas fa-broom text-primary text-2xl"></i>
                     <span class="text-white font-bold text-xl">Sioux Clean Solutions</span>
                 </div>
+                
+                <div class="flex items-center space-x-6">
+                    <a href="/" class="text-white hover:text-orange-300 transition nav-link">Home</a>
+                    
+                    <div class="dropdown relative">
+                        <button class="text-white hover:text-orange-300 transition flex items-center space-x-1 nav-link">
+                            <span>Services</span>
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div class="dropdown-menu absolute left-0 mt-2 w-48 bg-dark rounded-md shadow-lg py-1 z-50">
+                            <a href="/residential-cleaning.html" class="block px-4 py-2 text-white hover:bg-primary transition">Residential Cleaning</a>
+                        </div>
+                    </div>
+                    
+                    <a href="/#process" class="text-white hover:text-orange-300 transition nav-link">Process</a>
+                    <a href="/#testimonials" class="text-white hover:text-orange-300 transition nav-link">Testimonials</a>
+                    <a href="/#contact" class="text-white hover:text-orange-300 transition nav-link">Contact</a>
+                    
+                    <a href="tel:6054128105" class="bg-primary hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-semibold transition flex items-center">
+                        <i class="fas fa-phone mr-2"></i> (605) 412-8105
+                    </a>
+                </div>
+            </div>
             
             <!-- Mobile Navigation -->
             <div class="lg:hidden flex items-center justify-between">
@@ -123,9 +146,34 @@
                     <span class="text-white font-bold text-xl">Sioux Clean Solutions</span>
                 </div>
                 
-                <button class="text-white text-2xl">
+                <button class="text-white text-2xl" id="mobile-menu-button">
                     <i class="fas fa-bars"></i>
                 </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div class="lg:hidden hidden mt-4" id="mobile-menu">
+                <div class="flex flex-col space-y-4">
+                    <a href="/" class="text-white hover:text-orange-300 transition">Home</a>
+                    
+                    <div class="dropdown relative">
+                        <button class="text-white hover:text-orange-300 transition flex items-center space-x-1">
+                            <span>Services</span>
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div class="dropdown-menu mt-2 w-full bg-blue-700 rounded-md py-1">
+                            <a href="/residential-cleaning.html" class="block px-4 py-2 text-white hover:bg-blue-800 transition">Residential Cleaning</a>
+                        </div>
+                    </div>
+                    
+                    <a href="/#process" class="text-white hover:text-orange-300 transition">Process</a>
+                    <a href="/#testimonials" class="text-white hover:text-orange-300 transition">Testimonials</a>
+                    <a href="/#contact" class="text-white hover:text-orange-300 transition">Contact</a>
+                    
+                    <a href="tel:6054128105" class="bg-primary hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-semibold transition flex items-center justify-center">
+                        <i class="fas fa-phone mr-2"></i> (605) 412-8105
+                    </a>
+                </div>
             </div>
         </nav>
     </header>
@@ -403,6 +451,21 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const form = document.getElementById('quote-form');
+            
+            // Mobile menu functionality
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Close mobile menu when clicking on a link
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
             
             // Add input validation
             const inputs = form.querySelectorAll('input, textarea, select');

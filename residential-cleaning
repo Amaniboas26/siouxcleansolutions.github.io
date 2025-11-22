@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Residential Cleaning Services - Sioux Clean Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .font-poppins { font-family: 'Poppins', sans-serif; }
+        .font-montserrat { font-family: 'Montserrat', sans-serif; }
+        .font-opensans { font-family: 'Open Sans', sans-serif; }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(0, 120, 212, 0.9) 0%, rgba(0, 80, 163, 0.9) 100%);
+        }
+        
+        .feature-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1);
+            color: #FFA500;
+        }
+        
+        .nav-shadow {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown-menu {
+            transition: all 0.2s ease;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+        }
+        
+        .service-item {
+            transition: all 0.3s ease;
+        }
+        
+        .service-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="font-opensans text-gray-800 bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-blue-600 text-white fixed w-full z-50 nav-shadow">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <a href="/" class="flex items-center space-x-3">
+                    <img src="/Secondary.png" alt="Sioux Clean Solutions Logo" class="h-12 w-auto">
+                    <span class="font-montserrat text-xl font-bold">Sioux Clean Solutions</span>
+                </a>
+                
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="tel:6054128105" class="flex items-center space-x-2 font-semibold hover:text-orange-300 transition">
+                        <i class="fas fa-phone"></i>
+                        <span>(605) 412-8105</span>
+                    </a>
+                    
+                    <div class="flex space-x-6">
+                        <a href="/" class="hover:text-orange-300 transition">Home</a>
+                        
+                        <div class="dropdown relative">
+                            <button class="hover:text-orange-300 transition flex items-center space-x-1">
+                                <span>Services</span>
+                                <i class="fas fa-chevron-down text-xs"></i>
+                            </button>
+                            <div class="dropdown-menu absolute left-0 mt-2 w-48 bg-blue-600 rounded-md shadow-lg py-1 z-50">
+                                <a href="/residential-cleaning.html" class="block px-4 py-2 hover:bg-blue-700 transition">Residential Cleaning</a>
+                            </div>
+                        </div>
+                        
+                        <a href="/#process" class="hover:text-orange-300 transition">Process</a>
+                        <a href="/#testimonials" class="hover:text-orange-300 transition">Testimonials</a>
+                        <a href="/#contact" class="hover:text-orange-300 transition">Contact</a>
+                    </div>
+                </div>
+                
+                <button class="lg:hidden text-white focus:outline-none" id="mobile-menu-button">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile menu -->
+            <div class="lg:hidden hidden mt-4 pb-2" id="mobile-menu">
+                <div class="flex flex-col space-y-4">
+                    <a href="tel:6054128105" class="flex items-center space-x-2 font-semibold">
+                        <i class="fas fa-phone"></i>
+                        <span>(605) 412-8105</span>
+                    </a>
+                    
+                    <a href="/" class="hover:text-orange-300 transition">Home</a>
+                    
+                    <div class="dropdown relative">
+                        <button class="hover:text-orange-300 transition flex items-center space-x-1">
+                            <span>Services</span>
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div class="dropdown-menu mt-2 w-full bg-blue-700 rounded-md py-1">
+                            <a href="/residential-cleaning.html" class="block px-4 py-2 hover:bg-blue-800 transition">Residential Cleaning</a>
+                        </div>
+                    </div>
+                    
+                    <a href="/#process" class="hover:text-orange-300 transition">Process</a>
+                    <a href="/#testimonials" class="hover:text-orange-300 transition">Testimonials</a>
+                    <a href="/#contact" class="hover:text-orange-300 transition">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient pt-32 pb-20 px-4 text-center text-white">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="font-montserrat text-4xl md:text-5xl font-bold mb-6">Professional Residential Cleaning Services</h1>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Let us make your home sparkle in Sioux Falls, SD with our premium cleaning services</p>
+            <a href="/quote-form.html" class="inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105 shadow-lg">
+                Get Your Free Estimate
+            </a>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-16">
+        <!-- Top to Bottom Section -->
+        <section class="mb-20">
+            <div class="text-center mb-12">
+                <h2 class="font-montserrat text-3xl md:text-4xl font-bold text-blue-600 mb-4">Let Us Clean Your Home From Top to Bottom</h2>
+                <p class="max-w-3xl mx-auto text-lg text-gray-600">
+                    Reclaim your free time and leave the cleaning to the professionals. We offer comprehensive residential cleaning services in Sioux Falls, SD and surrounding areas, with flexible biweekly or monthly deep cleaning packages tailored to your needs.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="feature-card bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition duration-300">
+                    <div class="feature-icon text-blue-600 text-4xl mb-6">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3 class="font-montserrat text-xl font-bold mb-3">Whole House Cleaning</h3>
+                    <p class="text-gray-600">Comprehensive cleaning of every room in your home with attention to detail that makes all the difference.</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="feature-card bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition duration-300">
+                    <div class="feature-icon text-blue-600 text-4xl mb-6">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3 class="font-montserrat text-xl font-bold mb-3">Flexible Scheduling</h3>
+                    <p class="text-gray-600">Biweekly or monthly deep cleaning packages available to fit your busy schedule and cleaning needs.</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="feature-card bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition duration-300">
+                    <div class="feature-icon text-blue-600 text-4xl mb-6">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="font-montserrat text-xl font-bold mb-3">Premium Service</h3>
+                    <p class="text-gray-600">Thorough attention to detail in every cleaning session using professional techniques.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cleaning Checklist Section -->
+        <section class="mb-20 bg-white rounded-xl shadow-md overflow-hidden">
+            <div class="md:flex">
+                <div class="md:w-1/2 p-8 md:p-12 bg-blue-600 text-white">
+                    <h2 class="font-montserrat text-3xl font-bold mb-6">Our Cleaning Checklist</h2>
+                    <p class="mb-8 text-blue-100">When we clean your home, we ensure no corner is left untouched. Our thorough cleaning process includes:</p>
+                    
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-orange-300 mt-1 mr-3"></i>
+                            <span>Dusting all flat surfaces including furniture, shelves, and decor</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-orange-300 mt-1 mr-3"></i>
+                            <span>Cleaning kitchen appliances inside and out (microwave, oven, refrigerator)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-orange-300 mt-1 mr-3"></i>
+                            <span>Mopping and vacuuming all floors with attention to corners and edges</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-orange-300 mt-1 mr-3"></i>
+                            <span>Unloading dishwasher and putting away clean dishes</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-orange-300 mt-1 mr-3"></i>
+                            <span>Deep cleaning bathrooms including showers, tubs, toilets, and sinks</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-orange-300 mt-1 mr-3"></i>
+                            <span>Bedroom cleaning with bed making and organization</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-orange-300 mt-1 mr-3"></i>
+                            <span>Optional laundry services available upon request</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="md:w-1/2 p-8 md:p-12 bg-gray-50">
+                    <h3 class="font-montserrat text-2xl font-bold text-blue-600 mb-6">Why Choose Our Residential Cleaning?</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-user-shield text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg mb-1">Trusted Professionals</h4>
+                                <p class="text-gray-600">All our cleaners are background-checked, trained, and insured for your peace of mind.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-check-circle text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg mb-1">Quality Products</h4>
+                                <p class="text-gray-600">We use effective cleaning products that are tough on dirt.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-heart text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg mb-1">Satisfaction Guarantee</h4>
+                                <p class="text-gray-600">If you're not completely satisfied, we'll come back and re-clean at no additional cost.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Additional Services Section -->
+        <section class="mb-20">
+            <div class="text-center mb-12">
+                <h2 class="font-montserrat text-3xl font-bold text-blue-600 mb-4">Additional Services</h2>
+                <p class="max-w-2xl mx-auto text-gray-600">
+                    Beyond our standard residential cleaning, we offer specialized services to meet all your cleaning needs.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Service 1 -->
+                <div class="service-item bg-white p-6 rounded-lg shadow-md border border-gray-100">
+                    <div class="flex items-center">
+                        <div class="bg-blue-100 p-4 rounded-full mr-4">
+                            <i class="fas fa-box text-blue-600 text-xl"></i>
+                        </div>
+                        <h3 class="font-semibold text-lg">Turnover Cleaning</h3>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-item bg-white p-6 rounded-lg shadow-md border border-gray-100">
+                    <div class="flex items-center">
+                        <div class="bg-blue-100 p-4 rounded-full mr-4">
+                            <i class="fas fa-hard-hat text-blue-600 text-xl"></i>
+                        </div>
+                        <h3 class="font-semibold text-lg">Post-Construction</h3>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-item bg-white p-6 rounded-lg shadow-md border border-gray-100">
+                    <div class="flex items-center">
+                        <div class="bg-blue-100 p-4 rounded-full mr-4">
+                            <i class="fas fa-couch text-blue-600 text-xl"></i>
+                        </div>
+                        <h3 class="font-semibold text-lg">Upholstery Cleaning</h3>
+                    </div>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-item bg-white p-6 rounded-lg shadow-md border border-gray-100">
+                    <div class="flex items-center">
+                        <div class="bg-blue-100 p-4 rounded-full mr-4">
+                            <i class="fas fa-water text-blue-600 text-xl"></i>
+                        </div>
+                        <h3 class="font-semibold text-lg">Water Damage Restoration</h3>
+                    </div>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-item bg-white p-6 rounded-lg shadow-md border border-gray-100">
+                    <div class="flex items-center">
+                        <div class="bg-blue-100 p-4 rounded-full mr-4">
+                            <i class="fas fa-brush text-blue-600 text-xl"></i>
+                        </div>
+                        <h3 class="font-semibold text-lg">Carpet & Rug Cleaning</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="bg-blue-600 rounded-xl p-8 md:p-12 text-center text-white">
+            <h2 class="font-montserrat text-3xl font-bold mb-4">Get Your Free Estimate</h2>
+            <p class="max-w-2xl mx-auto mb-8 text-blue-100">
+                Contact us today at (605) 412-8105 for a personalized quote based on your home's square footage and specific cleaning needs.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="tel:6054128105" class="inline-block bg-white hover:bg-gray-100 text-blue-600 font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105 shadow-lg">
+                    <i class="fas fa-phone mr-2"></i> Call Now
+                </a>
+                <a href="/quote-form.html" class="inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105 shadow-lg">
+                    <i class="fas fa-envelope mr-2"></i> Email Request
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="font-montserrat text-xl font-bold mb-4">Sioux Clean Solutions</h3>
+                    <p class="text-gray-400">Professional cleaning services for homes and businesses in Sioux Falls, SD and surrounding areas.</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/residential-cleaning.html" class="text-gray-400 hover:text-white transition">Residential Cleaning</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="/#process" class="text-gray-400 hover:text-white transition">Our Process</a></li>
+                        <li><a href="/#testimonials" class="text-gray-400 hover:text-white transition">Testimonials</a></li>
+                        <li><a href="/#contact" class="text-gray-400 hover:text-white transition">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Contact</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-3"></i>
+                            <a href="tel:6054128105" class="hover:text-white transition">(605) 412-8105</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3"></i>
+                            <a href="mailto:info@siouxcleansolutions.com" class="hover:text-white transition">info@siouxcleansolutions.com</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-3"></i>
+                            <span>Sioux Falls, SD</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Sioux Clean Solutions. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

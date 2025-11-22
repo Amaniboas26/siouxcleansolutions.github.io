@@ -29,17 +29,20 @@
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
         
-        .dropdown:hover .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
+        .dropdown {
+            position: relative;
         }
         
         .dropdown-menu {
-            transition: all 0.2s ease;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 9999;
+            display: none;
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            display: block;
         }
         
         .service-item {
@@ -54,7 +57,7 @@
 </head>
 <body class="font-opensans text-gray-800 bg-gray-50">
     <!-- Navigation -->
-    <nav class="bg-blue-600 text-white fixed w-full z-50 nav-shadow">
+    <nav class="bg-blue-600 text-white fixed w-full z-[100] nav-shadow">
         <div class="container mx-auto px-4 py-3">
             <div class="flex justify-between items-center">
                 <a href="/" class="flex items-center space-x-3">
@@ -76,8 +79,10 @@
                                 <span>Services</span>
                                 <i class="fas fa-chevron-down text-xs"></i>
                             </button>
-                            <div class="dropdown-menu absolute left-0 mt-2 w-48 bg-blue-600 rounded-md shadow-lg py-1 z-50">
-                                <a href="/residential-cleaning.html" class="block px-4 py-2 hover:bg-blue-700 transition">Residential Cleaning</a>
+                            <div class="dropdown-menu mt-2 w-48 bg-blue-600 rounded-md shadow-lg py-1">
+                                <a href="/residential-cleaning/" class="block px-4 py-2 hover:bg-blue-700 transition">Residential Cleaning</a>
+                                <a href="/deep-clean/" class="block px-4 py-2 hover:bg-blue-700 transition">Deep Cleaning</a>
+                                <a href="/move-in-move-out-cleaning/" class="block px-4 py-2 hover:bg-blue-700 transition">Move-in/Move-out</a>
                             </div>
                         </div>
                         
@@ -102,13 +107,15 @@
                     
                     <a href="/" class="hover:text-orange-300 transition">Home</a>
                     
-                    <div class="dropdown relative">
-                        <button class="hover:text-orange-300 transition flex items-center space-x-1">
+                    <div class="relative">
+                        <button class="hover:text-orange-300 transition flex items-center space-x-1" id="mobile-services-button">
                             <span>Services</span>
                             <i class="fas fa-chevron-down text-xs"></i>
                         </button>
-                        <div class="dropdown-menu mt-2 w-full bg-blue-700 rounded-md py-1">
-                            <a href="/residential-cleaning.html" class="block px-4 py-2 hover:bg-blue-800 transition">Residential Cleaning</a>
+                        <div class="hidden mt-2 ml-4 bg-blue-700 rounded-md py-1" id="mobile-services-menu">
+                            <a href="/residential-cleaning/" class="block px-4 py-2 hover:bg-blue-800 transition">Residential Cleaning</a>
+                            <a href="/deep-clean/" class="block px-4 py-2 hover:bg-blue-800 transition">Deep Cleaning</a>
+                            <a href="/move-in-move-out-cleaning/" class="block px-4 py-2 hover:bg-blue-800 transition">Move-in/Move-out</a>
                         </div>
                     </div>
                     
@@ -125,7 +132,7 @@
         <div class="max-w-4xl mx-auto">
             <h1 class="font-montserrat text-4xl md:text-5xl font-bold mb-6">Professional Residential Cleaning Services</h1>
             <p class="text-xl mb-8 max-w-2xl mx-auto">Let us make your home sparkle in Sioux Falls, SD with our premium cleaning services</p>
-            <a href="/quote-form.html" class="inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105 shadow-lg">
+            <a href="/quote-form/" class="inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105 shadow-lg">
                 Get Your Free Estimate
             </a>
         </div>
@@ -321,7 +328,7 @@
                 <a href="tel:6054128105" class="inline-block bg-white hover:bg-gray-100 text-blue-600 font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105 shadow-lg">
                     <i class="fas fa-phone mr-2"></i> Call Now
                 </a>
-                <a href="/quote-form.html" class="inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105 shadow-lg">
+                <a href="/quote-form/" class="inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105 shadow-lg">
                     <i class="fas fa-envelope mr-2"></i> Email Request
                 </a>
             </div>
@@ -340,7 +347,9 @@
                 <div>
                     <h4 class="font-semibold text-lg mb-4">Services</h4>
                     <ul class="space-y-2">
-                        <li><a href="/residential-cleaning.html" class="text-gray-400 hover:text-white transition">Residential Cleaning</a></li>
+                        <li><a href="/residential-cleaning/" class="text-gray-400 hover:text-white transition">Residential Cleaning</a></li>
+                        <li><a href="/deep-clean/" class="text-gray-400 hover:text-white transition">Deep Cleaning</a></li>
+                        <li><a href="/move-in-move-out-cleaning/" class="text-gray-400 hover:text-white transition">Move-in/Move-out</a></li>
                     </ul>
                 </div>
                 
@@ -363,7 +372,7 @@
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-envelope mr-3"></i>
-                            <a href="mailto:info@siouxcleansolutions.com" class="hover:text-white transition">info@siouxcleansolutions.com</a>
+                            <a href="mailto:siouxcleansolutions@gmail.com" class="hover:text-white transition">siouxcleansolutions@gmail.com</a>
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-map-marker-alt mr-3"></i>
@@ -374,7 +383,7 @@
             </div>
             
             <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2023 Sioux Clean Solutions. All rights reserved.</p>
+                <p>&copy; 2024 Sioux Clean Solutions. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -386,6 +395,14 @@
         
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Mobile services dropdown
+        const mobileServicesButton = document.getElementById('mobile-services-button');
+        const mobileServicesMenu = document.getElementById('mobile-services-menu');
+        
+        mobileServicesButton.addEventListener('click', () => {
+            mobileServicesMenu.classList.toggle('hidden');
         });
         
         // Close mobile menu when clicking on a link

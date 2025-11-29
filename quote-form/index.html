@@ -58,23 +58,6 @@
             padding-right: 2.5rem;
         }
         
-        /* Dropdown functionality */
-        .dropdown {
-            position: relative;
-        }
-        
-        .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            z-index: 9999;
-            display: none;
-        }
-        
-        .dropdown:hover .dropdown-menu {
-            display: block;
-        }
-        
         /* Navigation link hover effect */
         .nav-link {
             position: relative;
@@ -96,19 +79,67 @@
             width: 100%;
         }
         
-        /* Simplified price display */
-        .price-pulse {
-            animation: pricePulse 2s infinite;
+        /* Focus styles for accessibility */
+        input:focus, textarea:focus, select:focus {
+            outline: 2px solid #3b82f6;
+            outline-offset: 2px;
         }
         
-        @keyframes pricePulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+        /* Service selection cards */
+        .service-card {
+            border: 2px solid #e5e7eb;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            border-color: #3b82f6;
+            background-color: #f0f7ff;
+        }
+        
+        .service-card.selected {
+            border-color: #3b82f6;
+            background-color: #eff6ff;
+        }
+        
+        /* Step navigation */
+        .step-indicator {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            background-color: #e5e7eb;
+            color: #6b7280;
+        }
+        
+        .step-indicator.active {
+            background-color: #3b82f6;
+            color: white;
+        }
+        
+        .step-indicator.completed {
+            background-color: #10b981;
+            color: white;
+        }
+        
+        /* Success message animation */
+        @keyframes success {
+            0% { transform: scale(0.8); opacity: 0; }
+            70% { transform: scale(1.05); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        .success-animation {
+            animation: success 0.5s ease-out forwards;
         }
     </style>
 </head>
-<body class="bg-gradient-to-br from-blue-50 to-indigo-50 min-h-screen p-4 pb-24">
+<body class="bg-gradient-to-br from-blue-50 to-indigo-50 min-h-screen p-4">
     <!-- Header with navigation -->
     <header class="max-w-7xl mx-auto mb-8">
         <nav class="bg-dark rounded-lg shadow-lg p-4">
@@ -129,6 +160,8 @@
                         </button>
                         <div class="dropdown-menu mt-2 w-48 bg-dark rounded-md shadow-lg py-1">
                             <a href="/residential-cleaning/" class="block px-4 py-2 text-white hover:bg-primary transition">Residential Cleaning</a>
+                            <a href="/commercial-cleaning/" class="block px-4 py-2 text-white hover:bg-primary transition">Commercial Cleaning</a>
+                            <a href="/deep-cleaning/" class="block px-4 py-2 text-white hover:bg-primary transition">Deep Cleaning</a>
                         </div>
                     </div>
                     
@@ -166,8 +199,8 @@
                         </button>
                         <div class="hidden mt-2 ml-4 bg-blue-700 rounded-md py-1" id="mobile-services-menu">
                             <a href="/residential-cleaning/" class="block px-4 py-2 text-white hover:bg-blue-800 transition">Residential Cleaning</a>
-                            <a href="/deep-clean/" class="block px-4 py-2 text-white hover:bg-blue-800 transition">Deep Cleaning</a>
-                            <a href="/move-in-move-out-cleaning/" class="block px-4 py-2 text-white hover:bg-blue-800 transition">Move-in/Move-out</a>
+                            <a href="/commercial-cleaning/" class="block px-4 py-2 text-white hover:bg-blue-800 transition">Commercial Cleaning</a>
+                            <a href="/deep-cleaning/" class="block px-4 py-2 text-white hover:bg-blue-800 transition">Deep Cleaning</a>
                         </div>
                     </div>
                     
@@ -189,7 +222,7 @@
         <div class="w-full lg:w-2/3">
             <div class="bg-white rounded-xl shadow-xl overflow-hidden animate-fade-in">
                 <!-- Header with decorative elements -->
-                <div class="bg-primary py-4 px-6 relative overflow-hidden">
+                <div class="bg-gradient-to-r from-primary to-secondary py-4 px-6 relative overflow-hidden">
                     <div class="absolute -right-10 -top-10 w-32 h-32 rounded-full bg-white bg-opacity-20"></div>
                     <div class="absolute -right-5 -bottom-5 w-20 h-20 rounded-full bg-white bg-opacity-20"></div>
                     
@@ -200,6 +233,32 @@
                         </div>
                         <div class="bg-white bg-opacity-20 p-3 rounded-full">
                             <i class="fas fa-broom text-white text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Progress indicator -->
+                <div class="px-6 pt-6">
+                    <div class="flex items-center justify-between mb-2">
+                        <div class="flex items-center space-x-2">
+                            <div class="step-indicator completed">
+                                <i class="fas fa-check text-xs"></i>
+                            </div>
+                            <span class="text-sm font-medium text-gray-700">Service</span>
+                        </div>
+                        <div class="flex-1 h-1 bg-gray-200 mx-2">
+                            <div class="h-full bg-primary" style="width: 100%"></div>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="step-indicator active">2</div>
+                            <span class="text-sm font-medium text-gray-700">Details</span>
+                        </div>
+                        <div class="flex-1 h-1 bg-gray-200 mx-2">
+                            <div class="h-full bg-gray-200" style="width: 0%"></div>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="step-indicator">3</div>
+                            <span class="text-sm font-medium text-gray-700">Contact</span>
                         </div>
                     </div>
                 </div>
@@ -242,11 +301,11 @@
                             </div>
                             
                             <div>
-                                <label for="square-feet" class="block text-sm font-medium text-gray-700 mb-1">Square Footage</label>
+                                <label for="address" class="block text-sm font-medium text-gray-700 mb-1">Service Address</label>
                                 <div class="relative">
-                                    <input type="number" id="square-feet" name="square-feet" min="0" placeholder="Enter square footage" required 
+                                    <input type="text" id="address" name="address" placeholder="Enter your address" required 
                                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition duration-200">
-                                    <span class="absolute right-3 top-3 text-gray-400">sq ft</span>
+                                    <i class="fas fa-map-marker-alt absolute right-3 top-3 text-gray-400"></i>
                                 </div>
                             </div>
                         </div>
@@ -263,6 +322,16 @@
                             <label for="service" class="block text-sm font-medium text-gray-700 mb-1">Service Description</label>
                             <textarea id="service" name="service" placeholder="Brief description of what you need cleaned" required rows="4"
                                       class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition duration-200"></textarea>
+                        </div>
+                        
+                        <!-- Square Footage -->
+                        <div>
+                            <label for="square-feet" class="block text-sm font-medium text-gray-700 mb-1">Square Footage</label>
+                            <div class="relative">
+                                <input type="number" id="square-feet" name="square-feet" min="0" placeholder="Enter square footage" required 
+                                       class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition duration-200">
+                                <span class="absolute right-3 top-3 text-gray-400">sq ft</span>
+                            </div>
                         </div>
                         
                         <!-- Room Selection -->
@@ -312,6 +381,16 @@
                                     <option value="One Time">One Time</option>
                                 </select>
                                 <i class="fas fa-calendar-alt absolute right-3 top-3 text-gray-400"></i>
+                            </div>
+                        </div>
+                        
+                        <!-- Preferred Date -->
+                        <div>
+                            <label for="preferred-date" class="block text-sm font-medium text-gray-700 mb-1">Preferred Service Date</label>
+                            <div class="relative">
+                                <input type="date" id="preferred-date" name="preferred-date" 
+                                       class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition duration-200">
+                                <i class="fas fa-calendar-day absolute right-3 top-3 text-gray-400"></i>
                             </div>
                         </div>
                     </div>
@@ -404,49 +483,17 @@
         </div>
     </main>
 
-    <!-- Simplified Price Display -->
-    <div id="price-display" class="fixed bottom-6 right-6 bg-white rounded-xl shadow-2xl border border-gray-200 z-50 p-4 w-48">
-        <div class="flex justify-between items-center mb-2">
-            <h3 class="font-semibold text-gray-700 text-sm">Estimated Total</h3>
-            <button id="toggle-details" class="text-gray-400 hover:text-primary text-xs">
-                <i class="fas fa-info-circle"></i>
-            </button>
-        </div>
-        <div class="flex justify-between items-center">
-            <span id="total-price" class="text-2xl font-bold text-primary price-pulse">$0.00</span>
-            <i class="fas fa-calculator text-gray-300"></i>
-        </div>
-        
-        <!-- Details popup (hidden by default) -->
-        <div id="price-details" class="absolute bottom-full right-0 mb-2 w-64 bg-white rounded-lg shadow-xl p-4 hidden border border-gray-200">
-            <h4 class="font-semibold text-gray-800 mb-2">Price Breakdown</h4>
-            <div class="space-y-1 text-sm">
-                <div class="flex justify-between">
-                    <span class="text-gray-600">Base rate:</span>
-                    <span id="detail-base">$0.00</span>
-                </div>
-                <div class="flex justify-between">
-                    <span class="text-gray-600">Bedrooms:</span>
-                    <span id="detail-bedrooms">$0.00</span>
-                </div>
-                <div class="flex justify-between">
-                    <span class="text-gray-600">Bathrooms:</span>
-                    <span id="detail-bathrooms">$0.00</span>
-                </div>
-                <div class="flex justify-between">
-                    <span class="text-gray-600">Kitchens:</span>
-                    <span id="detail-kitchens">$0.00</span>
-                </div>
-                <div class="flex justify-between">
-                    <span class="text-gray-600">Living rooms:</span>
-                    <span id="detail-living">$0.00</span>
-                </div>
-                <div class="flex justify-between border-t border-gray-200 pt-1 mt-1">
-                    <span class="text-gray-800 font-medium">Total:</span>
-                    <span id="detail-total" class="text-primary font-semibold">$0.00</span>
-                </div>
+    <!-- Success Message Modal -->
+    <div id="success-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-xl shadow-2xl p-8 max-w-md w-full mx-4 text-center success-animation">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-check text-green-500 text-2xl"></i>
             </div>
-            <p class="text-xs text-gray-500 mt-2">This is an estimate. Final price may vary.</p>
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Request Submitted!</h3>
+            <p class="text-gray-600 mb-6">Thank you for your interest in Sioux Clean Solutions. We'll contact you within 24 hours with your free quote.</p>
+            <button id="close-modal" class="bg-primary text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition">
+                Continue Browsing
+            </button>
         </div>
     </div>
 
@@ -454,6 +501,8 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const form = document.getElementById('quote-form');
+            const successModal = document.getElementById('success-modal');
+            const closeModal = document.getElementById('close-modal');
             
             // Mobile menu functionality
             const mobileMenuButton = document.getElementById('mobile-menu-button');
@@ -494,107 +543,37 @@
             
             // Form submission handler
             form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
                 // Show loading state
                 const submitBtn = form.querySelector('button[type="submit"]');
                 const originalText = submitBtn.innerHTML;
                 submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Processing...';
                 submitBtn.disabled = true;
                 
-                return true;
+                // Simulate form submission
+                setTimeout(function() {
+                    // Show success modal
+                    successModal.classList.remove('hidden');
+                    
+                    // Reset form and button
+                    form.reset();
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                }, 1500);
             });
             
-            // Price calculator functionality
-            const priceDisplay = document.getElementById('price-display');
-            const toggleDetailsBtn = document.getElementById('toggle-details');
-            const priceDetails = document.getElementById('price-details');
-            
-            toggleDetailsBtn.addEventListener('click', function() {
-                priceDetails.classList.toggle('hidden');
+            // Close modal functionality
+            closeModal.addEventListener('click', function() {
+                successModal.classList.add('hidden');
             });
             
-            // Close details when clicking outside
-            document.addEventListener('click', function(event) {
-                if (!priceDisplay.contains(event.target)) {
-                    priceDetails.classList.add('hidden');
+            // Close modal when clicking outside
+            successModal.addEventListener('click', function(e) {
+                if (e.target === successModal) {
+                    successModal.classList.add('hidden');
                 }
             });
-            
-            // Pricing variables
-            const baseRatePerSqFt = 0.15;
-            const bedroomPrice = 25;
-            const bathroomPrice = 20;
-            const kitchenPrice = 30;
-            const livingRoomPrice = 35;
-            
-            // Frequency multipliers
-            const frequencyMultipliers = {
-                'Every Week': 0.9,
-                'Every 2 Weeks': 1,
-                'Every 4 Weeks': 1.1,
-                'One Time': 1.2
-            };
-            
-            // Get form elements
-            const squareFeetInput = document.getElementById('square-feet');
-            const bedroomsInput = document.getElementById('bedrooms');
-            const bathroomsInput = document.getElementById('bathrooms');
-            const kitchensInput = document.getElementById('kitchens');
-            const livingRoomsInput = document.getElementById('living-rooms');
-            const frequencySelect = document.getElementById('frequency');
-            
-            // Add event listeners to form elements
-            squareFeetInput.addEventListener('input', updatePrice);
-            bedroomsInput.addEventListener('input', updatePrice);
-            bathroomsInput.addEventListener('input', updatePrice);
-            kitchensInput.addEventListener('input', updatePrice);
-            livingRoomsInput.addEventListener('input', updatePrice);
-            frequencySelect.addEventListener('change', updatePrice);
-            
-            // Initial price update
-            updatePrice();
-            
-            function updatePrice() {
-                // Get values from form
-                const squareFeet = parseInt(squareFeetInput.value) || 0;
-                const bedrooms = parseInt(bedroomsInput.value) || 0;
-                const bathrooms = parseInt(bathroomsInput.value) || 0;
-                const kitchens = parseInt(kitchensInput.value) || 0;
-                const livingRooms = parseInt(livingRoomsInput.value) || 0;
-                const frequency = frequencySelect.value;
-                
-                // Calculate base cost from square footage
-                const baseCost = squareFeet * baseRatePerSqFt;
-                
-                // Calculate room costs
-                const bedroomCost = bedrooms * bedroomPrice;
-                const bathroomCost = bathrooms * bathroomPrice;
-                const kitchenCost = kitchens * kitchenPrice;
-                const livingRoomCost = livingRooms * livingRoomPrice;
-                
-                // Get frequency multiplier
-                const multiplier = frequencyMultipliers[frequency] || 1;
-                
-                // Calculate total
-                const subtotal = baseCost + bedroomCost + bathroomCost + kitchenCost + livingRoomCost;
-                const total = subtotal * multiplier;
-                
-                // Update display
-                document.getElementById('total-price').textContent = `$${total.toFixed(2)}`;
-                
-                // Update details if visible
-                document.getElementById('detail-base').textContent = `${baseCost.toFixed(2)}`;
-                document.getElementById('detail-bedrooms').textContent = `${bedroomCost.toFixed(2)}`;
-                document.getElementById('detail-bathrooms').textContent = `${bathroomCost.toFixed(2)}`;
-                document.getElementById('detail-kitchens').textContent = `${kitchenCost.toFixed(2)}`;
-                document.getElementById('detail-living').textContent = `${livingRoomCost.toFixed(2)}`;
-                document.getElementById('detail-total').textContent = `${total.toFixed(2)}`;
-                
-                // Add pulse animation when price changes
-                const priceElement = document.getElementById('total-price');
-                priceElement.classList.remove('price-pulse');
-                void priceElement.offsetWidth; // Trigger reflow
-                priceElement.classList.add('price-pulse');
-            }
         });
     </script>
 </body>
